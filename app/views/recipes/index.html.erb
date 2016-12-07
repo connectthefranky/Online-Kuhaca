@@ -1,0 +1,22 @@
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1><center>Dobrodošli!</center></h1>
+    <p>Niste član?</p>
+    
+    <p><%= link_to "Registrirajte se kako bi mogli dodavati i ocjenjivati recepte", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
+
+
+
+
+
+<div class="row">
+  <% @recipes.each do |recipe| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= link_to (image_tag recipe.image.url(:medium), class: 'image'), recipe %>
+      </div>
+    </div>
+  <% end %>
+</div>

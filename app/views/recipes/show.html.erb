@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="row">
+	 		<div class="col-md-4">
+	 			<%= image_tag @recipe.image.url(:medium) %>
+	 			<div class="table-responsive">
+	 				<table class="table">
+	 				<body>
+	 					<tr>
+	 						<td><strong>Naslov:</strong></td>
+	 						<td><%= @recipe.title %></td>
+	 					</tr>
+	 					<tr>
+	 						<td><strong>Opis:</strong></td>
+	 						<td><%= @recipe.description %></td>
+	 					</tr>
+	 					<tr>
+	 						<td><strong>Sastojci:</strong></td>
+	 						<td><%= @recipe.ingredients %></td>
+	 					</tr>
+	 				</body>
+	 				</table>
+	 				<% if current_user.present? && current_user.id == @recipe.user_id %>
+
+					<h3><%= link_to 'Uredi', edit_recipe_path(@recipe) %></h3>
+					<% end %>
+	 			</div>
+	 		</div>
+	 	</div>
+	 </div>		
+</div>
+
+

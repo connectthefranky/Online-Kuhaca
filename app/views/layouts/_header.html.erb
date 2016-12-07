@@ -1,0 +1,21 @@
+<nav class="navbar navbar-inverse">
+	<div class="container">
+
+		
+		  <div class="nav navbar-nav navbar-brand">
+		    <a class="navbar-brand" href="#">     </a>
+		    <a class="nav-item navbar-brand active" href="/">Početna<span class="sr-only">(current)</span></a>
+
+		    <% if !user_signed_in? %>
+			    <a class="nav-item nav-link navbar-brand" href="/users/sign_in">Prijava</a>
+			    <a class="nav-item nav-link navbar-brand" href="/users/sign_up">Registracija</a>
+			<% else %>
+		    	<a class="nav-item nav-link navbar-brand" href="/users/sign_out">Odjava</a>
+		    	<a class="nav-item nav-link navbar-brand" href="/recipes/new">Dodaj novi recept</a>
+		    <% end %>
+
+		    <a class="nav-item nav-link navbar-brand" href="#">O nama</a>
+		  </div>
+		
+	</div>
+</nav>
