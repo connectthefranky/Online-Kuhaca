@@ -1,0 +1,88 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#logo a{
+  font-family: "Arial Black";
+}
+#jumbotron-title a{
+  text-decoration: none;
+  color: darkslategray;
+  font-family: "Arial Black";
+}
+
+body {
+  background-color: burlywood;
+  background-repeat: no-repeat;
+  background: url("body.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.jumbotron {
+  margin: 0;
+  position: relative;
+  background: rgba(100,100,100,0);
+  width:100%;
+  height: 100%;
+  background-size: 100% 100%;
+}
+
+.review_title {
+  margin: 0 0 20px 0;
+}
+
+.reviews {
+  padding: 15px 0;
+  border-bottom: 1px solid #EAEAEA;
+  .star-rating {
+    padding-bottom: 0px;
+  }
+}
+
+#new-recipe-title {
+  padding-bottom: 20px;
+  font-family: "Arial Black";
+  color: darkslategray;
+}
+
+.create-recipe {
+  margin-top: 15px;
+}
+
+.well-group {
+  background-color: burlywood;
+  border-color:  gray;
+  color: gray;
+}
+
+.login-actions {
+  margin-bottom: 15px;
+}
+.close-login {
+  margin: 5px;
+  color: #B00100;
+}
+.register-actions {
+  margin-bottom: 15px;
+}
+
+.user-info {
+  color: white;
+  background-color: #730E15;
+}
+
+#recipe_title {
+  color: black;
+}
+
+.pre-recipe {
+  border: 0;
+  color: whitesmoke;
+  background-color: #730E15;
+}
+
+.well {
+  border: 0;
+}

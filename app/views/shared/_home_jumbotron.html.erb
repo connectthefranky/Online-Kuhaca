@@ -1,0 +1,13 @@
+<div class="jumbotron">
+
+
+  <% if !user_signed_in?%>
+    <h1 align = "center" id="jumbotron-title" ><%=link_to "Dobrodošli u Online Kuhaču " , root_path %> </h1>
+    <div align="center"><%= link_to "Registrirajte se", new_user_registration_path, class: "btn btn-primary btn-lg" %></div>
+  <% else %>
+      <h1 align = "center" id="jumbotron-title" ><%=link_to "Online kuhača" , root_path %> </h1>
+  <% end %>
+
+</div>
+
+

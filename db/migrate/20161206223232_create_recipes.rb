@@ -1,7 +1,5 @@
 class CreateRecipes < ActiveRecord::Migration
   def change
-  	drop_table :recipes
-
     create_table :recipes do |t|
       t.string :title
       t.text :description
@@ -9,5 +7,5 @@ class CreateRecipes < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-  end
+
 end
