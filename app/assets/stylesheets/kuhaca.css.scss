@@ -4,11 +4,13 @@
 #logo a{
   font-family: "Arial Black";
 }
-#jumbotron-title a{
+#well-main-title a{
   text-decoration: none;
-  color: darkslategray;
+  font-size: 100px;
+  color: #730E15;
   font-family: "Arial Black";
 }
+
 
 body {
   background-color: burlywood;
@@ -20,13 +22,17 @@ body {
   background-size: cover;
 }
 
-.jumbotron {
-  margin: 0;
-  position: relative;
-  background: rgba(100,100,100,0);
-  width:100%;
-  height: 100%;
-  background-size: 100% 100%;
+#title-signedout-well{
+  background: asset-url('raw.gif');
+  height: 370px;
+  background-size: 100% 100% ;
+}
+
+#title-signedin-well {
+  background: asset-url('raw2.gif');
+  background-repeat: no-repeat;
+  height: 350px;
+  background-size: 100% 100% ;
 }
 
 .review_title {
