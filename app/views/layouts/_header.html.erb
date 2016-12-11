@@ -10,7 +10,7 @@
 			    <a class="nav-item nav-link navbar-brand" href="/users/sign_in">Prijava</a>
 			    <a class="nav-item nav-link navbar-brand" href="/users/sign_up">Registracija</a>
 			<% else %>
-		    	<a class="nav-item nav-link navbar-brand" href="/users/sign_out">Odjava</a>
+		    	<a class="nav-item nav-link navbar-brand" href="/users/sign_out">Odjava (<%= current_user.username %>)</a>
 		    	<a class="nav-item nav-link navbar-brand" href="/recipes/new">Dodaj novi recept</a>
 		    <% end %>
 

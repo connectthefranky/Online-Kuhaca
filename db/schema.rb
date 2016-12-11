@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206230924) do
+ActiveRecord::Schema.define(version: 20161211125741) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "comment",    limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.integer  "recipe_id",  limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "rating",     limit: 4
+    t.integer  "recipe_id",  limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "recepts", force: :cascade do |t|
+    t.string   "naziv",      limit: 255
+    t.text     "opis",       limit: 65535
+    t.text     "sastojci",   limit: 65535
+    t.string   "slika_url",  limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "user_id",    limit: 4
+  end
 
   create_table "recipes", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -39,6 +65,7 @@ ActiveRecord::Schema.define(version: 20161206230924) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "username",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -20,6 +20,31 @@
 	 					</tr>
 	 				</body>
 	 				</table>
+	 				
+	 				<%= form_for @rating do |f| %>
+						<div class="field">
+						    <%= f.label :Ocjena %><br>
+						    <%= f.text_field :rating %>
+						    <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+						</div>
+
+						<div class="actions">
+						    <%= f.submit "Dodaj ocjenu" %>
+						  </div>
+					<% end %>
+
+					<%= form_for @comment do |f| %>
+						<div class="field">
+						    <%= f.label :Komentar %><br>
+						    <%= f.text_field :comment %>
+						    <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+						</div>
+
+						<div class="actions">
+						    <%= f.submit "Dodaj komentar" %>
+						  </div>
+					<% end %>
+
 	 				<% if current_user.present? && current_user.id == @recipe.user_id %>
 
 					<h3><%= link_to 'Uredi', edit_recipe_path(@recipe) %></h3>
