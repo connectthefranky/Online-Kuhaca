@@ -1,8 +1,8 @@
-class RatingsController < ApplicationController
+class CommentsController < ApplicationController
   
   
   def create
-    @comment = Rating.new(comment_params)
+    @comment = Comment.new(comment_params)
     @comment.user = current_user
     @comment.save
     redirect_to recipe_path(@comment.recipe)

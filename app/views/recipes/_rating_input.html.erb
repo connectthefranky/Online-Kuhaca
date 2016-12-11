@@ -1,0 +1,15 @@
+
+<%= form_for @rating do |f| %>
+
+	<%= f.select :rating, [['5'],['4'],['3'],['2'],['1']] %>
+
+	<div class="field">
+	    <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+	</div>
+
+	<div class="actions">
+	    <%= f.submit "Dodaj ocjenu" %>
+	</div>
+<% end%>
+
+

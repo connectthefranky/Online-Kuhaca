@@ -20,18 +20,10 @@
 	 					</tr>
 	 				</body>
 	 				</table>
-	 				
-	 				<%= form_for @rating do |f| %>
-						<div class="field">
-						    <%= f.label :Ocjena %><br>
-						    <%= f.text_field :rating %>
-						    <%= f.hidden_field :recipe_id, :value => @recipe.id %>
-						</div>
 
-						<div class="actions">
-						    <%= f.submit "Dodaj ocjenu" %>
-						  </div>
-					<% end %>
+	 				<br></br>
+
+	 				<%= render 'rating_input' %>
 
 					<%= form_for @comment do |f| %>
 						<div class="field">
