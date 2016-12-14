@@ -9,11 +9,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<div id="logo">
-				<% if user_signed_in? %>
-						<%= link_to current_user.email, user_path(current_user.id), class: "navbar-brand", id: "logo"%>
-				<%else%>
-						<%= link_to "Online Kuhača", root_path, class: "navbar-brand", id: "logo" %>
-				<% end %>
+				<%= link_to "Online Kuhača", root_path, class: "navbar-brand", id: "logo" %>
 			</div>
 		</div>
 
@@ -47,6 +43,7 @@
 				<% if !user_signed_in? %>
 				<li><%= link_to "Prijava", new_user_session_path %></li>
 				<% else %>
+				<li><%= link_to current_user.email, user_path(current_user.id), class: "navbar-brand", id: "username"%></li>
 				<li><%= link_to "Odjava", destroy_user_session_path %></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Uređivanje profila <span class="caret"></span></a>

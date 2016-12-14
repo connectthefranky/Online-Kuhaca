@@ -3,14 +3,24 @@
 
 #logo a{
   font-family: "Arial Black";
+  letter-spacing: -2.5px;
+  text-transform: uppercase;
+  font-size: xx-large;
+  color: #730E15;
 }
+
+#username {
+  font-family: "Arial Black";
+  letter-spacing: -1px;
+
+}
+
 #well-main-title a{
   text-decoration: none;
   font-size: 100px;
   color: #730E15;
   font-family: "Arial Black";
 }
-
 
 body {
   background-color: burlywood;
@@ -27,7 +37,9 @@ body {
   height: 370px;
   background-size: 100% 100% ;
 }
-
+#welcome {
+  margin-top: 170px;
+}
 #title-signedin-well {
   background: asset-url('raw2.gif');
   background-repeat: no-repeat;
@@ -91,4 +103,18 @@ body {
 
 .well {
   border: 0;
+}
+
+#list-group{
+  padding: 0;
+}
+#ingredients-list-title {
+  font-family: "Arial Black";
+  font-size: xx-large;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+}
+
+#hidden-area {
+  opacity: 1;
 }
