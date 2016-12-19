@@ -1,7 +1,11 @@
 class RatingsController < ApplicationController
   
-  
+
   def create
+    if (Rating.where(:user => current_user, :recipe_id => rating_params[:recipe_id]).length > 0)
+      rating = Rating.where(:user => current_user, :recipe => rating_params[:recipe_id]).first
+      rating.destroy
+    end
     @rating = Rating.new(rating_params)
     @rating.user = current_user
     @rating.save
