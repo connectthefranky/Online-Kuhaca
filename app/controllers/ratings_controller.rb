@@ -10,6 +10,15 @@ class RatingsController < ApplicationController
     @rating.user = current_user
     @rating.save
     redirect_to recipe_path(@rating.recipe)
+
+    recipe = Recipe.where(:id => rating_params[:recipe_id]).first
+    num = Rating.where(:recipe => rating_params[:recipe_id]).length
+    sum = 0
+    Rating.where(:recipe => rating_params[:recipe_id]).each do |r|
+      sum = sum + r.rating.to_s.to_i
+    end
+    avg = sum.to_f/num
+    recipe.update(average_rating: avg) 
   end
 
   def update
