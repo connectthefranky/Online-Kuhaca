@@ -29,16 +29,6 @@ ActiveRecord::Schema.define(version: 20161220155836) do
     t.datetime "updated_at",           null: false
   end
 
-  create_table "recepts", force: :cascade do |t|
-    t.string   "naziv",      limit: 255
-    t.text     "opis",       limit: 65535
-    t.text     "sastojci",   limit: 65535
-    t.string   "slika_url",  limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "user_id",    limit: 4
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.string   "title",              limit: 255
     t.text     "description",        limit: 65535

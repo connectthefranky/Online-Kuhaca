@@ -25,6 +25,14 @@
 	 				
 	 				<%= render 'rating_input' %>
 
+	 				<% @comments.each do |c|%>
+					  	<blockquote class="blockquote">
+							<p class="mb-0">
+								<%= c.comment.to_s %>
+							</p>
+						</blockquote>
+					<% end %>   
+
 					<%= form_for @comment do |f| %>
 						<div class="field">
 						    <%= f.label :Komentar %><br>

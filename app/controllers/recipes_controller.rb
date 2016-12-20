@@ -14,6 +14,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1.json
   def show
     @rating = Rating.new
+    @comments=Comment.all
     @comment = Comment.new
   end
 
