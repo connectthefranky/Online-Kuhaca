@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user = current_user
+    @comment.user_email = current_user.email
     @comment.save
     redirect_to recipe_path(@comment.recipe)
   end

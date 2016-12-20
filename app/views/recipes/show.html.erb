@@ -28,6 +28,7 @@
 	 				<% @comments.each do |c|%>
 					  	<blockquote class="blockquote">
 							<p class="mb-0">
+								<%= c.user_email.to_s %><%= ": "%>
 								<%= c.comment.to_s %>
 							</p>
 						</blockquote>
