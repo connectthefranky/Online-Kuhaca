@@ -31,7 +31,7 @@ class RecipesController < ApplicationController
     @measurs = Array.new
     @ingrs = Array.new
     #ovo bi trebalo unutar sebe prikupiti sastojke i mjere
-    get_ingredients
+    parse_ingredients
     @recipe.measurements = @measurs
     @recipe.ingredients = @ingrs
 
@@ -50,6 +50,15 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
   def update
+    @measurs = Array.new
+    @ingrs = Array.new
+    #unisti prijasnje mjere(veze medu receptima i sastojcima)!
+    @recipe.measurements.destroy
+    #ovo bi trebalo unutar sebe prikupiti sastojke i mjere
+    parse_ingredients
+    @recipe.measurements = @measurs
+    @recipe.ingredients = @ingrs
+
     respond_to do |format|
       if @recipe.update(recipe_params)
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
@@ -82,7 +91,7 @@ class RecipesController < ApplicationController
       params.require(:recipe).permit(:title, :description, :image)
     end
 
-    def get_ingredients
+    def parse_ingredients
       line = params.require(:recipe).permit(:ingredients)[:ingredients]
       splitted = line.to_s.split("\r\n")
       splitted.each do |strLine|
@@ -90,7 +99,7 @@ class RecipesController < ApplicationController
           next
         end
         debugger
-        array = strLine.split("_")
+        array = strLine.split("\t")
         ingredient = Ingredient.create(name: array[1])
         @ingrs << ingredient
         @measurs << Measurement.create(ingredient: ingredient, recipe: @recipe, measure: array[0])

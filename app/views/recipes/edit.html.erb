@@ -1,4 +1,181 @@
 
 <h1 id="new-recipe-title" align="center">Uređivanje recepta</h1>
 
-<%= render 'form' %>
+<%= form_for @recipe, html: {multipart: true} do |f| %>
+    <div class="col-xs-offset-3 col-xs-6 error">
+      <% if @recipe.errors.any? %>
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h3>
+
+            </div>
+
+            <ul>
+              <% @recipe.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <div class="well well-group col-sm-8 col-sm-offset-2">
+            <%= f.label :naslov %><br>
+            <%= f.text_field :title, class: "form-control", placeholder: "Upišite naziv recepta" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="well well-group col-sm-8 col-sm-offset-2">
+            <%= f.label :opis %><br>
+            <%= f.text_area :description, rows: 8, class: "form-control", placeholder: "Upišite opis izrade recepta" %>
+          </div>
+        </div>
+
+        <div class="col-sm-8 col-sm-offset-2">
+          <ul id="list-group">
+            <li id="ingredients-list-title" class="list-group-item"><h3 align="center">Lista sastojaka</h3></li>
+            <% i = 0 %>
+            <% @recipe.measurements.each do |m|%>
+                <% i += 1 %>
+              <li class="list-group-item show" id = "<%= m.ingredient.name %>">
+                <span>
+                  <%=m.measure + "\t" + m.ingredient.name%>
+                </span>
+                <input type="button" value="Ukloni"  class="btn btn-danger delete-ingredient" onclick = "delete_ingredient(<%= m.ingredient.name %>)"/>
+              </li>
+              <script>
+                  function delete_ingredient(id) {
+                      document.getElementById("Error-label").innerHTML = id.id;
+                      var list = document.getElementById("list-group");
+                      allLi = list.getElementsByTagName("li");
+                      for(var i = 1, len = allLi.length; i < len; i++) {
+                          if(allLi[i].id === id.id) {
+                              list.removeChild(allLi[i]);
+                              return;
+                          }
+                      }
+                  }
+              </script>
+            <% end %>
+          </ul>
+        </div>
+
+        <%= f.text_area :ingredients, id: "hidden-area" %>
+
+        <div class="well well-group col-sm-8 col-sm-offset-2">
+          <form class="form-inline">
+
+            <p id="Error-label"></p>
+            <div class="form-group">
+              <label class="sr-only" for="Mjera">Mjera</label>
+              <input type="text" class="form-control" id="measure" placeholder="Mjera">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="Sastojak">Sastojak</label>
+              <input type="text" class="form-control" id="ingredient" placeholder="Sastojak">
+            </div>
+            <button type="button" id="add-to-list" class="btn btn-default" id="add-ingredient">Dodaj sastojak</button>
+
+            <script>
+                document.getElementById("add-to-list").onclick = function () {
+                    var list = document.getElementById("list-group");
+                    var measure = document.getElementById("measure");
+                    var ingredient = document.getElementById("ingredient");
+                    var hidden = document.getElementById("hidden-area");
+
+                    var measurementRegex = /^([0-9][ ])*([a-z]|[A-Z]|[čćđšž])+[ ]*$/i;
+                    var ingredientRegex = /^([a-z]|[A-Z]|[čćđšž]|[ ])+$/i;
+
+
+                    if (measure.value.match(measurementRegex)) {
+
+                        if (ingredient.value.match(ingredientRegex)) {
+                            document.getElementById("Error-label").innerHTML = "";
+                            var newLI = document.createElement("li");
+                            var allLi = list.getElementsByTagName("li");
+                            if(allLi.length > 1) {
+                                for(var i = 1, len = allLi.length; i<len; i++) {
+                                    var allSpans = allLi[i].getElementsByTagName("span");
+                                    if(allSpans[0].id === ingredient.value) {
+                                        document.getElementById("Error-label").innerHTML = "GREŠKA! Sastojak \"" + ingredient.value + "\" već postoji";
+                                        measure.value = "";
+                                        ingredient.value = "";
+                                        return;
+                                    }
+                                }
+                            }
+
+                            var input = measure.value + "\t" + ingredient.value;
+                            var inputSpanTag = document.createElement("span");
+                            inputSpanTag.innerHTML = input;
+                            inputSpanTag.id = ingredient.value;
+
+                            newLI.appendChild(inputSpanTag);
+                            newLI.className = newLI.className + "list-group-item show";
+
+                            var newButton = document.createElement("input");
+                            newButton.type = "button";
+                            newButton.value = "Ukloni";
+                            newButton.className = "btn btn-danger delete-ingredient";
+                            newButton.onclick = function () {
+                                list.removeChild(newLI);
+                            }
+
+                            newLI.appendChild(newButton)
+                            list.appendChild(newLI);
+                            measure.value = "";
+                            ingredient.value = "";
+
+                        } else {
+                            document.getElementById("Error-label").innerHTML = "GREŠKA! Sastojak \"" + ingredient.value + "\" nije dobro unesen. Pokušajte ponovo!"
+                            ingredient.value = "";
+                        }
+
+                    } else {
+                        document.getElementById("Error-label").innerHTML = "GREŠKA! Mjera \"" + measure.value + "\" nije dobro unesena. Pokušajte ponovo!"
+                        measure.value = "";
+                    }
+                }
+            </script>
+          </form>
+        </div>
+
+        <div class="form-group">
+          <div class="well well-group col-sm-4 col-sm-offset-2">
+            <%= f.label :slika %><br>
+            <%= f.file_field :image, accept: "image/*", class: "form-control-file", placeholder: "Dodajte sliku" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-5 col-sm-2 create-recipe">
+            <%= f.submit "Promijeni recept", class: "btn btn-primary btn-lg ", onclick: "return prepare_ingredients()" %>
+            <script>
+                function prepare_ingredients() {
+                    var list = document.getElementById("list-group");
+                    var allLi = list.getElementsByTagName("li");
+                    if(allLi.length == 1) {
+                        return false;
+                    }
+                    var hidden = document.getElementById("hidden-area");
+                    hidden.value = "";
+                    for(var i = 1, len = allLi.length; i < len; i++) {
+                        var allSpans = allLi[i].getElementsByTagName("span");
+                        if(i == 1) {
+                            hidden.value = allSpans[0].innerHTML;
+                        } else {
+                            hidden.value += "\n" + allSpans[0].innerHTML;
+                        }
+                    }
+                    return true;
+                }
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+

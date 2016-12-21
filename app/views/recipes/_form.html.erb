@@ -55,52 +55,66 @@
             <button type="button" id="add-to-list" class="btn btn-default" id="add-ingredient">Dodaj sastojak</button>
 
             <script>
-              document.getElementById("add-to-list").onclick = function () {
-                var list = document.getElementById("list-group");
-                var measure = document.getElementById("measure");
-                var ingredient = document.getElementById("ingredient");
-                var hidden = document.getElementById("hidden-area");
+                document.getElementById("add-to-list").onclick = function () {
+                    var list = document.getElementById("list-group");
+                    var measure = document.getElementById("measure");
+                    var ingredient = document.getElementById("ingredient");
+                    var hidden = document.getElementById("hidden-area");
 
-                var measurementRegex = /^([0-9][ ])*([a-z]|[A-Z]|[čćđšž])+[ ]*$/i;
-                var ingredientRegex = /^([a-z]|[A-Z]|[čćđšž]|[ ])+$/i;
+                    var measurementRegex = /^([0-9][ ])*([a-z]|[A-Z]|[čćđšž])+[ ]*$/i;
+                    var ingredientRegex = /^([a-z]|[A-Z]|[čćđšž]|[ ])+$/i;
 
 
-                if (measure.value.match(measurementRegex)) {
+                    if (measure.value.match(measurementRegex)) {
 
-                  if (ingredient.value.match(ingredientRegex)) {
-                    document.getElementById("Error-label").innerHTML = "";
-                    var newLI = document.createElement("li");
-                    var input = measure.value + "_" + ingredient.value;
-                    if (list.getElementsByTagName("li").length == 1) {
-                      hidden.value = input;
+                        if (ingredient.value.match(ingredientRegex)) {
+                            document.getElementById("Error-label").innerHTML = "";
+                            var newLI = document.createElement("li");
+                            var allLi = list.getElementsByTagName("li");
+                            if(allLi.length > 1) {
+                                for(var i = 1, len = allLi.length; i<len; i++) {
+                                    var allP = allLi[i].getElementsByTagName("span");
+                                    if(allP[0].id === ingredient.value) {
+                                        document.getElementById("Error-label").innerHTML = "GREŠKA! Sastojak \"" + ingredient.value + "\" već postoji";
+                                        measure.value = "";
+                                        ingredient.value = "";
+                                        return;
+                                    }
+                                }
+                            }
+
+                            var input = measure.value + "\t" + ingredient.value;
+                            var inputSpanTag = document.createElement("span");
+                            inputSpanTag.innerHTML = input;
+                            inputSpanTag.id = ingredient.value;
+
+                            newLI.appendChild(inputSpanTag);
+                            newLI.className = newLI.className + "list-group-item show";
+
+                            var newButton = document.createElement("input");
+                            newButton.type = "button";
+                            newButton.value = "Ukloni";
+                            newButton.className = "btn btn-danger delete-ingredient";
+                            newButton.style.textAlign = "center";
+                            newButton.onclick = function () {
+                                list.removeChild(newLI);
+                            }
+
+                            newLI.appendChild(newButton)
+                            list.appendChild(newLI);
+                            measure.value = "";
+                            ingredient.value = "";
+
+                        } else {
+                            document.getElementById("Error-label").innerHTML = "GREŠKA! Sastojak \"" + ingredient.value + "\" nije dobro unesen. Pokušajte ponovo!"
+                            ingredient.value = "";
+                        }
+
                     } else {
-                      hidden.value = hidden.value + "\n" + input;
+                        document.getElementById("Error-label").innerHTML = "GREŠKA! Mjera \"" + measure.value + "\" nije dobro unesena. Pokušajte ponovo!"
+                        measure.value = "";
                     }
-
-                    newLI.innerHTML = input;
-                    newLI.className = newLI.className + "list-group-item show";
-
-                    var newButton = document.createElement("input");
-                    newButton.type = "button";
-                    newButton.value = "Ukloni";
-                    newButton.className = "btn btn-danger delete-ingredient";
-                    newButton.style.textAlign = "center";
-                    newButton.onclick = function () {
-                        list.removeChild(newLI);
-                    }
-
-                    newLI.appendChild(newButton)
-                    list.appendChild(newLI);
-                  } else {
-                    document.getElementById("Error-label").innerHTML = "GREŠKA! Sastojak \"" + ingredient.value + "\" nije dobro unesen. Pokušajte ponovo!"
-                    ingredient.value = "";
-                  }
-
-                } else {
-                  document.getElementById("Error-label").innerHTML = "GREŠKA! Mjera \"" + measure.value + "\" nije dobro unesena. Pokušajte ponovo!"
-                  measure.value = "";
                 }
-              }
             </script>
           </form>
         </div>

@@ -10,7 +10,7 @@ class Recipe < ActiveRecord::Base
   RECIPE_TITLE_REGEX = /\A[a-zA-Z[čćđšž][ ]]+\z/i
 
   validates :title, presence: true, format: {with: RECIPE_TITLE_REGEX, message: "Samo slova dopuštena"}
-  validates :description, presence: true, length: { minimum: 20 }
+  validates :description, presence: true, length: { minimum: 10 }
   validates :user_id, presence: true
 
   has_attached_file :image, styles: {medium: "400x600"}
