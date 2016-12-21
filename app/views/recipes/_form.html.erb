@@ -79,8 +79,17 @@
 
                     newLI.innerHTML = input;
                     newLI.className = newLI.className + "list-group-item show";
-                    var newButton = document.createElement("button");
-                    newButton.
+
+                    var newButton = document.createElement("input");
+                    newButton.type = "button";
+                    newButton.value = "Izbriši";
+                    newButton.className = "btn btn-danger delete-ingredient";
+                    newButton.style.textAlign = "center";
+                    newButton.onclick = function () {
+                        list.removeChild(newLI);
+                    }
+
+                    newLI.appendChild(newButton)
                     list.appendChild(newLI);
                   } else {
                     document.getElementById("Error-label").innerHTML = "GREŠKA! Sastojak \"" + ingredient.value + "\" nije dobro unesen. Pokušajte ponovo!"
