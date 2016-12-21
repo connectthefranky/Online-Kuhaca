@@ -98,7 +98,6 @@ class RecipesController < ApplicationController
         if strLine.starts_with?("{")
           next
         end
-        debugger
         array = strLine.split("\t")
         ingredient = Ingredient.create(name: array[1])
         @ingrs << ingredient

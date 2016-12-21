@@ -62,15 +62,22 @@ body {
 #new-recipe-title {
   padding-bottom: 20px;
   font-family: "Arial Black";
-  color: darkslategray;
+  color: whitesmoke;
 }
 
+.btn-panel {
+  margin-bottom: 15px;
+}
+
+.recipe-create-panel {
+  background-color: black;
+}
 .create-recipe {
   margin-top: 15px;
 }
 
 .well-group {
-  background-color: burlywood;
+  background-color: #428bca;
   border-color:  gray;
   color: gray;
 }
@@ -78,10 +85,15 @@ body {
 .login-actions {
   margin-bottom: 15px;
 }
+
+.back {
+  float: right;
+}
 .close-login {
   margin: 5px;
   color: #B00100;
 }
+
 .register-actions {
   margin-bottom: 15px;
 }
@@ -120,14 +132,14 @@ body {
 
 #ingredients-list-title h3{
   font-family: "Arial Black";
-  color: darkslategray;
+  color: #428bca;
   font-size: xx-large;
   letter-spacing: -2px;
   text-transform: uppercase;
 }
 
 #ingredients-list-title {
-  background-color: burlywood;
+  background-color: black;
 }
 
 .delete-ingredient{
@@ -135,11 +147,20 @@ body {
   padding: 0;
 }
 
-.blabla {
-  width: 200px;
-  margin-right: 0;
+#hidden-area {
+  opacity: 0;
 }
 
-#hidden-area {
-  opacity: 1;
+.form-ingred{
+  float: left;
+  margin-right: 7px;
+}
+
+.ingredient-info {
+  background-color: black;
+}
+
+.ingredient-info h1{
+  font-family: "Arial Black";
+  color: #428bca;
 }

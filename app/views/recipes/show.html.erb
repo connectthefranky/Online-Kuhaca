@@ -20,6 +20,14 @@
 								<td><h3><%= @recipe.title %></h3></td>
 							</tr>
 							<tr>
+								<td><strong>Izradio:</strong></td>
+								<td><strong><%= @recipe.user.email %> </strong></td>
+							</tr>
+							<tr>
+								<td><strong>Datuma:</strong></td>
+								<td><%= @recipe.created_at.strftime(" %d.%m.%Y")%> <%= @recipe.created_at.strftime("u %I:%M%p")%> </td>
+							</tr>
+							<tr>
 								<td><strong>Opis:</strong></td>
 								<td><pre class = "pre-recipe"><%= @recipe.description %></pre></td>
 							</tr>

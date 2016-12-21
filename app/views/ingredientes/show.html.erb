@@ -1,1 +1,13 @@
-<h2><%= @ingredient.name %></h2>
+<div class="alert">
+  <div class="well ingredient-info col-xs-offset-3 col-xs-6">
+    <input type="button" value="Povratak" onclick="goBack()" class = "back btn btn-danger" data-dismiss="alert"/>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <h1 class="ingredient-info" align="center"><%= @ingredient.name %></h1>
+  </div>
+</div>

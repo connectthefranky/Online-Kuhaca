@@ -4,7 +4,7 @@ class Recipe < ActiveRecord::Base
   attr_accessor :stringIngredients
 
   belongs_to :user
-  has_many :measurements
+  has_many :measurements, dependent: :destroy
   has_many :ingredients, through: :measurements
 
   RECIPE_TITLE_REGEX = /\A[a-zA-Z[čćđšž][ ]]+\z/i
