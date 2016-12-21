@@ -26,6 +26,8 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = current_user.recipes.build(recipe_params)
+    @recipe.user = current_user
+    @recipe.save
     @measurs = Array.new
     @ingrs = Array.new
     #ovo bi trebalo unutar sebe prikupiti sastojke i mjere
@@ -81,15 +83,17 @@ class RecipesController < ApplicationController
     end
 
     def get_ingredients
-      line = params.require(:recipe).permit(:ingredients)
-      splitted = line.to_s.split("\n")
+      line = params.require(:recipe).permit(:ingredients)[:ingredients]
+      splitted = line.to_s.split("\r\n")
       splitted.each do |strLine|
-        if strLine.starts_with?("a")
+        if strLine.starts_with?("{")
           next
         end
-        array = strLine.split(" ")
-        @ingrs << Ingredient.create(name: array[0])
-        @measurs << Measurement.create(recipe: @recipe, measure: array[1])
+        debugger
+        array = strLine.split("_")
+        ingredient = Ingredient.create(name: array[1])
+        @ingrs << ingredient
+        @measurs << Measurement.create(ingredient: ingredient, recipe: @recipe, measure: array[0])
       end
     end
 end

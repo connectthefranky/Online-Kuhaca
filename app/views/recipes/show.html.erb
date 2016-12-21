@@ -25,7 +25,28 @@
 							</tr>
 							<tr>
 								<td><strong>Sastojci:</strong></td>
-								<td><pre class = "pre-recipe"><%= @recipe.ingredients %></pre></td>
+								<td>
+									<table class="table table-striped">
+										<tr>
+											<td><strong>Mjera sastojka</strong></td>
+											<td><strong>Naziv sastojka</strong></td>
+										</tr>
+										<% @recipe.measurements.each do |m|%>
+										<tr>
+											<td><%=m[:measure]%></td>
+											<td><%= link_to m.ingredient[:name], ingredient_path(m.ingredient), class: "ingredient-link"%></td>
+										</tr>
+										<% end %>
+
+
+									</table>
+
+
+									</ul>
+
+
+
+								</td>
 							</tr>
 							</body>
 						</table>

@@ -101,6 +101,15 @@ body {
   background-color: #730E15;
 }
 
+.ingredient-link:link{
+  text-decoration: none;
+  color: #730E15;
+}
+
+.ingredient-link:visited{
+  color: #730E15;
+}
+
 .well {
   border: 0;
 }
@@ -108,13 +117,19 @@ body {
 #list-group{
   padding: 0;
 }
-#ingredients-list-title {
+
+#ingredients-list-title h3{
   font-family: "Arial Black";
+  color: darkslategray;
   font-size: xx-large;
   letter-spacing: -2px;
   text-transform: uppercase;
 }
 
+#ingredients-list-title {
+  background-color: burlywood;
+}
+
 #hidden-area {
-  opacity: 1;
+  opacity: 0;
 }

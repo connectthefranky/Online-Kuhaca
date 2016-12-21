@@ -1,9 +1,8 @@
-
-<%= form_for @recipe, html: { multipart: true } do |f| %>
+<%= form_for @recipe, html: {multipart: true} do |f| %>
     <div class="col-xs-offset-3 col-xs-6 error">
       <% if @recipe.errors.any? %>
           <div class="panel panel-danger">
-            <div class = "panel-heading">
+            <div class="panel-heading">
               <h3><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h3>
 
             </div>
@@ -18,8 +17,8 @@
     </div>
 
 
-    <div class = "row">
-      <div class = "col-xs-12">
+    <div class="row">
+      <div class="col-xs-12">
         <div class="form-group">
           <div class="well well-group col-sm-8 col-sm-offset-2">
             <%= f.label :naslov %><br>
@@ -34,37 +33,64 @@
         </div>
 
         <div class="col-sm-8 col-sm-offset-2">
-          <ul id = "list-group">
-            <li class="list-group-item active"><h3 id="ingredients-list-title" align = "center">Lista sastojaka</h3></li>
+          <ul id="list-group">
+            <li id="ingredients-list-title" class="list-group-item"><h3 align="center">Lista sastojaka</h3></li>
           </ul>
         </div>
 
-        <%=f.text_area :ingredients, id: "hidden-area" %>
+        <%= f.text_area :ingredients, id: "hidden-area" %>
 
         <div class="well well-group col-sm-8 col-sm-offset-2">
           <form class="form-inline">
+
+            <p id="Error-label"></p>
             <div class="form-group">
-              <label class="sr-only" for="exampleInputEmail3">Measure</label>
-              <input type="text" class="form-control" id="measure" placeholder="Measure">
+              <label class="sr-only" for="Mjera">Mjera</label>
+              <input type="text" class="form-control" id="measure" placeholder="Mjera">
             </div>
             <div class="form-group">
-              <label class="sr-only" for="exampleInputPassword3">Ingredient</label>
-              <input type="text" class="form-control" id="ingredient" placeholder="Ingredient">
+              <label class="sr-only" for="Sastojak">Sastojak</label>
+              <input type="text" class="form-control" id="ingredient" placeholder="Sastojak">
             </div>
-            <button type="button" id = "add-to-list" class="btn btn-default" id="add-ingredient">Dodaj sastojak</button>
+            <button type="button" id="add-to-list" class="btn btn-default" id="add-ingredient">Dodaj sastojak</button>
+
             <script>
               document.getElementById("add-to-list").onclick = function () {
                 var list = document.getElementById("list-group");
-                var measure = document.getElementById("measure").value;
-                var ingredient = document.getElementById("ingredient").value;
-                var hidden = document.getElementById("hidden-area")
+                var measure = document.getElementById("measure");
+                var ingredient = document.getElementById("ingredient");
+                var hidden = document.getElementById("hidden-area");
 
-                var newLI = document.createElement("li");
-                var input = measure + " " + ingredient;
-                hidden.value = hidden.value + "\n" + input
-                newLI.innerHTML = input;
-                newLI.className = newLI.className + "list-group-item show";
-                list.appendChild(newLI);
+                var measurementRegex = /^([0-9][ ])*([a-z]|[A-Z]|[čćđšž])+[ ]*$/i;
+                var ingredientRegex = /^([a-z]|[A-Z]|[čćđšž]|[ ])+$/i;
+
+
+                if (measure.value.match(measurementRegex)) {
+
+                  if (ingredient.value.match(ingredientRegex)) {
+                    document.getElementById("Error-label").innerHTML = "";
+                    var newLI = document.createElement("li");
+                    var input = measure.value + "_" + ingredient.value;
+                    if (list.getElementsByTagName("li").length == 1) {
+                      hidden.value = input;
+                    } else {
+                      hidden.value = hidden.value + "\n" + input;
+                    }
+
+                    newLI.innerHTML = input;
+                    newLI.className = newLI.className + "list-group-item show";
+                    var newButton = document.createElement("button");
+                    newButton.
+                    list.appendChild(newLI);
+                  } else {
+                    document.getElementById("Error-label").innerHTML = "GREŠKA! Sastojak \"" + ingredient.value + "\" nije dobro unesen. Pokušajte ponovo!"
+                    ingredient.value = "";
+                  }
+
+                } else {
+                  document.getElementById("Error-label").innerHTML = "GREŠKA! Mjera \"" + measure.value + "\" nije dobro unesena. Pokušajte ponovo!"
+                  measure.value = "";
+                }
               }
             </script>
           </form>
@@ -77,8 +103,8 @@
           </div>
         </div>
         <div class="form-group">
-          <div class="col-sm-offset-6 col-sm-2 create-recipe">
-            <%= f.submit "Izradi recept",  class: "btn btn-primary btn-lg " %>
+          <div class="col-sm-offset-5 col-sm-2 create-recipe">
+            <%= f.submit "Izradi recept", class: "btn btn-primary btn-lg " %>
           </div>
         </div>
       </div>
