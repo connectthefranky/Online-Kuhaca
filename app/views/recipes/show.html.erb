@@ -23,27 +23,42 @@
 
 	 				<br></br>
 	 				
-	 				<%= render 'rating_input' %>
+	 				<% if (Rating.where(:recipe_id => @recipe.id).length == 0) %>
+	 					<%= "Dodajte prvu ocjenu" %><br></br>
+	 				<% else %>
+	 					<%= "Prosječna ocjena: " %><%= @recipe.average_rating %><br></br>
+	 				<% end %>
+
+
+	 				<% if current_user.present? %>
+	 					<%= render 'rating_input' %>
+	 				<% end %>
 
 	 				<% @comments.each do |c|%>
-					  	<blockquote class="blockquote">
-							<p class="mb-0">
-								<%= c.user_email.to_s %><%= ": "%>
-								<%= c.comment.to_s %>
-							</p>
-						</blockquote>
+	 					<%if (c.recipe_id == @recipe.id )%>
+						  	<blockquote class="blockquote">
+								<p class="mb-0">
+									<%= c.user_email.to_s %><%= ": "%>
+									<%= c.comment.to_s %>
+								</p>
+							</blockquote>
+							
+						<% end %>
 					<% end %>   
 
-					<%= form_for @comment do |f| %>
-						<div class="field">
-						    <%= f.label :Komentar %><br>
-						    <%= f.text_field :comment %>
-						    <%= f.hidden_field :recipe_id, :value => @recipe.id %>
-						</div>
 
-						<div class="actions">
-						    <%= f.submit "Dodaj komentar" %>
-						  </div>
+					<% if current_user.present? %>
+						<%= form_for @comment do |f| %>
+							<div class="field">
+							    <%= f.label :Komentar %><br>
+							    <%= f.text_field :comment %>
+							    <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+							</div>
+
+							<div class="actions">
+							    <%= f.submit "Dodaj komentar" %>
+							  </div>
+						<% end %>
 					<% end %>
 
 	 				<% if current_user.present? && current_user.id == @recipe.user_id %>

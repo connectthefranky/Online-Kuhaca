@@ -17,7 +17,7 @@ class RatingsController < ApplicationController
     Rating.where(:recipe => rating_params[:recipe_id]).each do |r|
       sum = sum + r.rating.to_s.to_i
     end
-    avg = sum.to_f/num
+    avg = (sum.to_f/num).round(2)
     recipe.update(average_rating: avg) 
   end
 

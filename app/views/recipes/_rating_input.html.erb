@@ -1,9 +1,9 @@
 
 <%= form_for @rating do |f| %>
 
-	<%= "Prosječna ocjena: " %><%= @recipe.average_rating %><br></br>
-
-	<%= "Vaša ocjena: " %> <%= Rating.where(:user_id => current_user).first.rating.to_s %><br></br>
+	<% if(Rating.where(:user_id => current_user, :recipe_id => @recipe.id).length > 0) %>
+		<%= "Vaša ocjena: " %> <%= Rating.where(:user_id => current_user, :recipe_id => @recipe.id).first.rating.to_s %><br></br>
+	<% end %>
 
 	<%= f.select :rating, [['5'],['4'],['3'],['2'],['1']] %>
 
