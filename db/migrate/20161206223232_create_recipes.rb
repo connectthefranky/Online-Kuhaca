@@ -6,6 +6,6 @@ class CreateRecipes < ActiveRecord::Migration
       t.text :ingredients
 
       t.timestamps null: false
-    end
+  end
 
 end

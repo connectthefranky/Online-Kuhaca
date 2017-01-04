@@ -4,7 +4,11 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    query = params[:search]
+    @search = Recipe.search do
+      fulltext query
+    end
+    @recipes = @search.results
   end
 
   # GET /recipes/1
