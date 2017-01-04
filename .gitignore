@@ -11,3 +11,15 @@
 /log/*
 !/log/.keep
 /tmp
+solr/default/data/index/write.lock
+solr/development/data/index/_2.fdt
+solr/development/data/index/_2.nvd
+solr/development/data/index/_2_Lucene50_0.doc
+solr/development/data/index/_2_Lucene50_0.pos
+solr/development/data/index/_2_Lucene50_0.tim
+solr/development/data/index/write.lock
+solr/development/data/tlog/tlog.0000000000000000000
+solr/development/data/tlog/tlog.0000000000000000001
+solr/development/data/tlog/tlog.0000000000000000002
+solr/hsperfdata_kordi_000/14224
+solr/test/data/index/write.lock
