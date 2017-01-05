@@ -11,7 +11,9 @@
 		<div class="panel-body">
 			<div class="row">
 				<div class="col-md-offset-1 col-md-10">
-					<%= image_tag @recipe.image.url(:medium) %>
+					<div align="center">
+						<%= image_tag @recipe.image.url(), class: "img-circle" ,height: '500', width: '500' %>
+					</div>
 					<div class="table-responsive">
 						<table class="table">
 							<body>
