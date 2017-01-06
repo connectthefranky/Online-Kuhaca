@@ -2,16 +2,18 @@
 	<a onclick="goBack()" class = "close close-login" data-dismiss="alert">&#215;</a>
 
 	<script>
-		function goBack() {
-			window.history.back();
-		}
+      function goBack() {
+          window.history.back();
+      }
 	</script>
 
 	<div class="panel panel-default show-panel">
 		<div class="panel-body">
 			<div class="row">
 				<div class="col-md-offset-1 col-md-10">
-					<%= image_tag @recipe.image.url(:medium) %>
+					<div align="center">
+						<%= image_tag @recipe.image.url(), class: "img-circle" ,height: '500', width: '500' %>
+					</div>
 					<div class="table-responsive">
 						<table class="table">
 							<body>
@@ -20,12 +22,34 @@
 								<td><h3><%= @recipe.title %></h3></td>
 							</tr>
 							<tr>
+								<td><strong>Izradio:</strong></td>
+								<td><strong><%= @recipe.user.email %> </strong></td>
+							</tr>
+							<tr>
+								<td><strong>Datuma:</strong></td>
+								<td><%= @recipe.created_at.strftime(" %d.%m.%Y")%> <%= @recipe.created_at.strftime("u %I:%M%p")%> </td>
+							</tr>
+							<tr>
 								<td><strong>Opis:</strong></td>
 								<td><pre class = "pre-recipe"><%= @recipe.description %></pre></td>
 							</tr>
 							<tr>
 								<td><strong>Sastojci:</strong></td>
-								<td><pre class = "pre-recipe"><%= @recipe.ingredients %></pre></td>
+								<td>
+									<table class="table table-striped">
+										<tr>
+											<td><strong>Mjera sastojka</strong></td>
+											<td><strong>Naziv sastojka</strong></td>
+										</tr>
+										<% @recipe.measurements.each do |m|%>
+												<tr>
+													<td><%=m[:measure]%></td>
+													<td><%= link_to m.ingredient[:name], ingredient_path(m.ingredient), class: "ingredient-link"%></td>
+												</tr>
+										<% end %>
+									</table>
+
+								</td>
 							</tr>
 							</body>
 						</table>
@@ -40,9 +64,43 @@
 					</div>
 				</div>
 			</div>
-		</div>
+      <% if (Rating.where(:recipe_id => @recipe.id).length != 0) %>
+          <%= "Prosječna ocjena: " %><%= @recipe.average_rating %><br></br>
+      <% end %>
+
+      <% if current_user.present? %>
+          <% if (Rating.where(:recipe_id => @recipe.id).length == 0) %>
+              <%= "Dodajte prvu ocjenu" %><br></br>
+          <% end %>
+          <%= render 'rating_input' %>
+      <% end %>
+
+      <% @comments.each do |c|%>
+          <%if (c.recipe_id == @recipe.id )%>
+              <blockquote class="blockquote">
+                <p class="mb-0">
+                  <%= c.user_email.to_s %><%= ": "%>
+                  <%= c.comment.to_s %>
+                </p>
+              </blockquote>
+
+          <% end %>
+      <% end %>
+
+
+      <% if current_user.present? %>
+          <%= form_for @comment do |f| %>
+              <div class="field">
+                <%= f.label :Komentar %><br>
+                <%= f.text_field :comment ,class: "" %>
+                <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Dodaj komentar" %>
+              </div>
+          <% end %>
+      <% end %>
+    </div>
 	</div>
-
 </div>
-
-

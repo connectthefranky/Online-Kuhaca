@@ -3,14 +3,24 @@
 
 #logo a{
   font-family: "Arial Black";
+  letter-spacing: -2.5px;
+  text-transform: uppercase;
+  font-size: xx-large;
+  color: #730E15;
 }
+
+#username {
+  font-family: "Arial Black";
+  letter-spacing: -1px;
+
+}
+
 #well-main-title a{
   text-decoration: none;
   font-size: 100px;
   color: #730E15;
   font-family: "Arial Black";
 }
-
 
 body {
   background-color: burlywood;
@@ -27,7 +37,9 @@ body {
   height: 370px;
   background-size: 100% 100% ;
 }
-
+#welcome {
+  margin-top: 170px;
+}
 #title-signedin-well {
   background: asset-url('raw2.gif');
   background-repeat: no-repeat;
@@ -50,15 +62,22 @@ body {
 #new-recipe-title {
   padding-bottom: 20px;
   font-family: "Arial Black";
-  color: darkslategray;
+  color: whitesmoke;
 }
 
+.btn-panel {
+  margin-bottom: 15px;
+}
+
+.recipe-create-panel {
+  background-color: black;
+}
 .create-recipe {
   margin-top: 15px;
 }
 
 .well-group {
-  background-color: burlywood;
+  background-color: #428bca;
   border-color:  gray;
   color: gray;
 }
@@ -66,10 +85,15 @@ body {
 .login-actions {
   margin-bottom: 15px;
 }
+
+.back {
+  float: right;
+}
 .close-login {
   margin: 5px;
   color: #B00100;
 }
+
 .register-actions {
   margin-bottom: 15px;
 }
@@ -89,6 +113,54 @@ body {
   background-color: #730E15;
 }
 
+.ingredient-link:link{
+  text-decoration: none;
+  color: #730E15;
+}
+
+.ingredient-link:visited{
+  color: #730E15;
+}
+
 .well {
   border: 0;
+}
+
+#list-group{
+  padding: 0;
+}
+
+#ingredients-list-title h3{
+  font-family: "Arial Black";
+  color: #428bca;
+  font-size: xx-large;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+}
+
+#ingredients-list-title {
+  background-color: black;
+}
+
+.delete-ingredient{
+  float: right;
+  padding: 0;
+}
+
+#hidden-area {
+  opacity: 0;
+}
+
+.form-ingred{
+  float: left;
+  margin-right: 7px;
+}
+
+.ingredient-info {
+  background-color: black;
+}
+
+.ingredient-info h1{
+  font-family: "Arial Black";
+  color: #428bca;
 }

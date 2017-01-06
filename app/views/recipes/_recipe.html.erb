@@ -2,7 +2,7 @@
   <% obj.each do |recipe| %>
       <div class="col-xs-offset-3 col-xs-6">
         <div class="well">
-          <%= link_to (image_tag recipe.image.url(:medium), class: 'image'), recipe %>
+          <%= link_to (image_tag recipe.image.url(),height: '100', width: '100', class: 'image img-circle'), recipe %>
           <strong id = "recipe_title"><%= recipe.title %></strong>
         </div>
       </div>

@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :recipes
+  resources :ratings, only: [:create, :update]
+  resources :comments, only: [:create, :update]
 
   root'pages#home'
 
   resources :users, only: [:show]
+
+  get '/ingredients/:id', to: 'ingredientes#show' , as: 'ingredient'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
