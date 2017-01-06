@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40b66e41-9d50-487f-92ad-c676ebe9ab0a" name="Default" comment="">
+    <list default="true" id="40b66e41-9d50-487f-92ad-c676ebe9ab0a" name="Default" comment="Merge branch 'fran' into davor&#10;&#10;# Conflicts:&#10;#&#9;app/controllers/recipes_controller.rb&#10;#&#9;app/models/recipe.rb&#10;#&#9;app/views/layouts/_header.html.erb&#10;#&#9;app/views/recipes/_form.html.erb&#10;#&#9;app/views/recipes/edit.html.erb&#10;#&#9;app/views/recipes/new.html.erb&#10;#&#9;app/views/recipes/show.html.erb&#10;#&#9;db/schema.rb&#10;">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/system/recipes/images/000/000/004/medium/3.jpg" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/system/recipes/images/000/000/004/original/3.jpg" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/system/recipes/images/000/000/006/medium/1.jpg" />
@@ -665,12 +665,12 @@
       <workItem from="1483545190554" duration="4302000" />
       <workItem from="1483619457102" duration="646000" />
       <workItem from="1483623875767" duration="5698000" />
-      <workItem from="1483699423724" duration="73000" />
+      <workItem from="1483699423724" duration="265000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157312000" />
+    <option name="totallyTimeSpent" value="157504000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
