@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214093651) do
+ActiveRecord::Schema.define(version: 20170105143055) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "comment",    limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.integer  "recipe_id",  limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "user_email", limit: 255
+  end
+
+  create_table "ingredientes", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -30,6 +45,14 @@ ActiveRecord::Schema.define(version: 20161214093651) do
   add_index "measurements", ["ingredient_id"], name: "index_measurements_on_ingredient_id", using: :btree
   add_index "measurements", ["recipe_id"], name: "index_measurements_on_recipe_id", using: :btree
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "rating",     limit: 4
+    t.integer  "recipe_id",  limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string   "title",              limit: 255
     t.text     "description",        limit: 65535
@@ -40,6 +63,7 @@ ActiveRecord::Schema.define(version: 20161214093651) do
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
+    t.float    "average_rating",     limit: 24
   end
 
   create_table "users", force: :cascade do |t|

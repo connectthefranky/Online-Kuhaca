@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :recipes
+  resources :ratings, only: [:create, :update]
+  resources :comments, only: [:create, :update]
 
   root'pages#home'
 

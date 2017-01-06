@@ -1,7 +1,12 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+
   before_action :authenticate_user!, except: [:show, :index, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
+
   attr_accessor :measurs, :ingrs
+
+
   # GET /recipes
   # GET /recipes.json
   def index
@@ -11,12 +16,16 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    @rating = Rating.new
+    @comments=Comment.all
+    @comment = Comment.new
   end
 
   # GET /recipes/new
   def new
     @recipe = current_user.recipes.build
   end
+
 
   # GET /recipes/1/edit
   def edit
@@ -104,4 +113,9 @@ class RecipesController < ApplicationController
         @measurs << Measurement.create(ingredient: ingredient, recipe: @recipe, measure: array[0])
       end
     end
+
+    def authorize_user!
+      redirect_to recipes_path if current_user != @recipe.user
+    end
+
 end
