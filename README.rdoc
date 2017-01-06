@@ -4,3 +4,8 @@ Potrebno za pokretanje aplikacije :
 * Pokrenite MySQL Workbench
 * U /config/database.yml dodajte redak username: root i password: "vaš password"
 * U terminalu/cmd-u - rake db:create
+
+Potrebno za testiranje searcha:
+* U cmd/terminalu: gem install sunspot_solr
+* Zatim: rake sunspot:solr:run
+* U novom prozoru terminala - rake sunspot:reindex

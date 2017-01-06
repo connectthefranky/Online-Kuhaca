@@ -3,8 +3,14 @@ source 'http://rubygems.org'
 gem 'devise', '~> 4.2'
 gem 'paperclip', '~> 5.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'tzinfo-data'
+<<<<<<< .merge_file_a11396
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'sunspot_rails'
+group :development do
+  gem 'sunspot_solr'
+end
+
+gem 'tzinfo-data'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :jruby]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
