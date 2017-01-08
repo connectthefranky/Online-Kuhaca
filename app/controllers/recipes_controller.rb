@@ -43,11 +43,13 @@ class RecipesController < ApplicationController
     @recipe.save
     @measurs = Array.new
     @ingrs = Array.new
+    @tgs = Array.new
     #ovo bi trebalo unutar sebe prikupiti sastojke i mjere
     parse_ingredients
+    parse_tags
     @recipe.measurements = @measurs
     @recipe.ingredients = @ingrs
-
+    @recipe.tags = @tgs
 
     respond_to do |format|
       if @recipe.save
@@ -65,12 +67,14 @@ class RecipesController < ApplicationController
   def update
     @measurs = Array.new
     @ingrs = Array.new
+    @tgs = Array.new
     #unisti prijasnje mjere(veze medu receptima i sastojcima)!
     @recipe.measurements.destroy
+    @recipe.tags.destroy
+    @recipe.ingredients.destroy
     #ovo bi trebalo unutar sebe prikupiti sastojke i mjere
+    parse_tags
     parse_ingredients
-    @recipe.measurements = @measurs
-    @recipe.ingredients = @ingrs
 
     respond_to do |format|
       if @recipe.update(recipe_params)
@@ -111,10 +115,38 @@ class RecipesController < ApplicationController
         if strLine.starts_with?("{")
           next
         end
+
+        if strLine.blank?
+          next
+        end
+
         array = strLine.split("\t")
-        ingredient = Ingredient.create(name: array[1])
+        ingredient = Ingredient.find_or_create_by(name: array[1])
         @ingrs << ingredient
-        @measurs << Measurement.create(ingredient: ingredient, recipe: @recipe, measure: array[0])
+        @measurs << Measurement.find_or_create_by(ingredient_id: ingredient.id, recipe_id: @recipe.id, measure: array[0])
+      end
+
+      parse_tags
+      @recipe.ingredients = @ingrs
+      @recipe.measurements = @measurs
+      @recipe.tags = @tgs
+    end
+
+    def parse_tags
+      line = params.require(:recipe).permit(:tags)[:tags]
+
+      splitted = line.to_s.split("\r\n")
+      splitted.each do |strLine|
+        if strLine.starts_with?("{")
+          next
+        end
+
+        if strLine.blank?
+          next
+        end
+
+        tag = Tag.find_or_create_by(title: strLine)
+        @tgs << tag
       end
     end
 

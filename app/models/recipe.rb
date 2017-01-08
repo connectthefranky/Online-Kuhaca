@@ -7,6 +7,7 @@ class Recipe < ActiveRecord::Base
   has_many :measurements, dependent: :destroy
   has_many :ingredients, through: :measurements
   has_many :ratings
+  has_many :tags
 
   RECIPE_TITLE_REGEX = /\A[a-zA-Z[čćđšž][ ]]+\z/i
 

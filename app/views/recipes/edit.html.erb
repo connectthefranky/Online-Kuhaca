@@ -152,6 +152,93 @@
                 </div>
               </div>
 
+              <div class="well well-group col-sm-8 col-sm-offset-2">
+                <div class="col-sm-12">
+                  <ul id="list-group-tag">
+                    <li id="ingredients-list-title" class="list-group-item"><h3 align="center">Lista oznaka</h3></li>
+                    <% @recipe.tags.each do |t|%>
+                        <li class="list-group-item show">
+                            <span id = "<%= t.title %>">
+                              <%=t.title%>
+                            </span>
+                          <input type="button" value="Ukloni"  class="btn btn-danger delete-ingredient" onclick = "delete_tag(<%= t.title %>)"/>
+                          <script>
+                              function delete_tag(id) {
+                                  document.getElementById("Error-label").innerHTML = id.id;
+                                  var list = document.getElementById("list-group-tag");
+                                  var allLi = list.getElementsByTagName("li");
+                                  for(var i = 1, len = allLi.length; i < len; i++) {
+                                      var allSpans = allLi[i].getElementsByTagName("span");
+                                      if(allSpans[0].id === id.id) {
+                                          list.removeChild(allLi[i]);
+                                          return;
+                                      }
+                                  }
+                              }
+                          </script>
+                        </li>
+                    <% end %>
+                  </ul>
+
+                  <div class="" style="display: none;">
+                    <%= f.text_area :tags, id: "hidden-area-tag" %>
+                  </div>
+
+                  <form class="form-inline">
+
+                    <p id="Error-label"></p>
+                    <div class="form-group form-ingred">
+                      <label class="sr-only" for="Oznaka">Oznaka</label>
+                      <input type="text" class="form-control" id="tag" placeholder="Oznaka">
+                    </div>
+
+                    <button type="button" id="add-to-list-tag" class="btn btn-default" id="add-tag">Dodaj oznaku</button>
+
+                    <script>
+                        document.getElementById("add-to-list-tag").onclick = function () {
+                            var list = document.getElementById("list-group-tag");
+                            var tag = document.getElementById("tag");
+
+                            document.getElementById("Error-label").innerHTML = "";
+                            var newLI = document.createElement("li");
+                            var allLi = list.getElementsByTagName("li");
+
+                            if(allLi.length > 1) {
+                                for(var i = 1, len = allLi.length; i<len; i++) {
+                                    var allSpans = allLi[i].getElementsByTagName("span");
+                                    if(allSpans[0].id.trim() === tag.value.replace(" ","").trim()) {
+                                        document.getElementById("Error-label").innerHTML = "GREŠKA! Oznaka \"" + tag.value + "\" već postoji";
+                                        tag.value = "";
+                                        return;
+                                    }
+                                }
+                            }
+
+                            var input = tag.value;
+                            var inputSpanTag = document.createElement("span");
+                            inputSpanTag.innerHTML = input;
+                            inputSpanTag.id = tag.value.replace(" ", "");
+
+                            newLI.appendChild(inputSpanTag);
+                            newLI.className = newLI.className + "list-group-item show";
+
+                            var newButton = document.createElement("input");
+                            newButton.type = "button";
+                            newButton.value = "Ukloni";
+                            newButton.className = "btn btn-danger delete-ingredient";
+                            newButton.onclick = function () {
+                                list.removeChild(newLI);
+                            }
+
+                            newLI.appendChild(newButton)
+                            list.appendChild(newLI);
+                            tag.value = "";
+                        }
+                    </script>
+                  </form>
+                </div>
+              </div>
+
               <div class="form-group">
                 <div class="well well-group col-sm-4 col-sm-offset-2">
                   <%= f.label :slika %><br>
@@ -160,24 +247,38 @@
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-5 col-sm-2 create-recipe">
-                  <%= f.submit "Promijeni recept", class: "btn btn-primary btn-lg btn-panel", onclick: "return prepare_ingredients()" %>
+                  <%= f.submit "Izradi recept", class: "btn btn-primary btn-lg btn-panel", onclick: "return prepare_ingredients()" %>
                   <script>
                       function prepare_ingredients() {
                           var list = document.getElementById("list-group");
+                          var taglist = document.getElementById("list-group-tag");
                           var allLi = list.getElementsByTagName("li");
-                          if(allLi.length == 1) {
+                          var allLiTag = taglist.getElementsByTagName("li");
+
+                          if(allLi.length == 1 && allLiTag.length == 1) {
                               return false;
                           }
                           var hidden = document.getElementById("hidden-area");
+                          var hiddenTag = document.getElementById("hidden-area-tag");
                           hidden.value = "";
+                          hiddenTag.value = "";
                           for(var i = 1, len = allLi.length; i < len; i++) {
                               var allSpans = allLi[i].getElementsByTagName("span");
                               if(i == 1) {
-                                  hidden.value = allSpans[0].innerHTML.trim();
+                                  hidden.value = allSpans[0].innerHTML;
                               } else {
-                                  hidden.value += "\n" + allSpans[0].innerHTML.trim();
+                                  hidden.value += "\n" + allSpans[0].innerHTML;
                               }
                           }
+                          for(var i = 1, len = allLiTag.length; i < len; i++) {
+                              var allSpans = allLiTag[i].getElementsByTagName("span");
+                              if(i == 1) {
+                                  hiddenTag.value = allSpans[0].innerHTML;
+                              } else {
+                                  hiddenTag.value += "\n" + allSpans[0].innerHTML;
+                              }
+                          }
+
                           return true;
                       }
                   </script>
