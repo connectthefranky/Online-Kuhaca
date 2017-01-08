@@ -1,0 +1,18 @@
+<div class="alert">
+  <div class="well ingredient-info col-xs-offset-3 col-xs-6">
+    <input type="button" value="Povratak" onclick="goBack()" class = "back btn btn-danger" data-dismiss="alert"/>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <h1 class="ingredient-info" align="center"><%= @tag.title %></h1>
+    <% @recipes.each do |t| %>
+      <% t.each do |tmp| %>
+        <%= render 'recipe', obj: t %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

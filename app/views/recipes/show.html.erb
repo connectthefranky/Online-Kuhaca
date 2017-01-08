@@ -51,6 +51,14 @@
 
 								</td>
 							</tr>
+							<tr>
+								<td><strong>Oznake:</strong></td>
+									<td>
+										<% @recipe.recipe_tags.each do |t| %>
+											<%= link_to '#' + Tag.find(t[:tag_id]).title.strip, tag_path(t.tag.id), class: "btn btn-info" %>
+										<% end %>
+									</td>
+							</tr>
 							</body>
 						</table>
 						<% if current_user.present? && current_user.id == @recipe.user_id %>

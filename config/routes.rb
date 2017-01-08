@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   resources :recipes
   resources :ratings, only: [:create, :update]
   resources :comments, only: [:create, :update]
+  resources :tags
 
   root'pages#home'
 
   resources :users, only: [:show]
 
   get '/ingredients/:id', to: 'ingredientes#show' , as: 'ingredient'
+  get '/tags/:id', to: 'tags#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
