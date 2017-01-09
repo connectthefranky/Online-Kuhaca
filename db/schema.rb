@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108193316) do
+ActiveRecord::Schema.define(version: 20170109214802) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment",    limit: 65535
@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(version: 20170108193316) do
 
   add_index "measurements", ["ingredient_id"], name: "index_measurements_on_ingredient_id", using: :btree
   add_index "measurements", ["recipe_id"], name: "index_measurements_on_recipe_id", using: :btree
+
+  create_table "measuring_units", force: :cascade do |t|
+    t.text     "measure",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "rating",     limit: 4
