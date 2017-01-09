@@ -70,6 +70,7 @@ class RecipesController < ApplicationController
     @tgs = Array.new
     #unisti prijasnje mjere(veze medu receptima i sastojcima)!
     @recipe.measurements.destroy
+    @recipe.recipe_tags.destroy
     #ovo bi trebalo unutar sebe prikupiti sastojke i mjere
     parse_ingredients
     parse_tags
