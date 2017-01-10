@@ -4,10 +4,15 @@ gem 'devise', '~> 4.2'
 gem 'paperclip', '~> 5.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+
+#search gems
 gem 'sunspot_rails'
 group :development do
   gem 'sunspot_solr'
 end
+
+#mailer gems
+gem 'mailcatcher'
 
 gem 'tzinfo-data'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :jruby]
