@@ -1,12 +1,123 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
+
+.navbar-edit {
+  color: #8BC34A;
+}
+
+body {
+  background-color: #f9f9f9 !important;
+  font-family: 'Open Sans', sans-serif!important;
+  font-size:11px;
+}
+.well{
+  background-color:#CCFF90!important;
+  border-radius:0!important;
+}
+
+.well.login-box {
+  /*width:400px; */
+  margin:0 auto;
+  margin-top:10px;
+}
+.well.login-box legend {
+  font-size:30px;
+  text-align:center;
+  font-weight:500;
+  color: #004D40;
+}
+.well.login-box label {
+  color:#004D40;
+  margin-left: 28px;
+  font-weight:300;
+  font-size:13px;
+}
+.well.login-box input {
+  margin-left: 28px;
+  width: 450px;
+}
+.well.login-box input[type="text"] {
+  box-shadow:none;
+  border-color:#ddd;
+  border-radius:0;
+}
+
+.well.welcome-text{
+  font-size:21px;
+}
+
+/* Notifications */
+
+.notification{
+  position:fixed;
+  top: 20px;
+  right:0;
+  background-color:#FF4136;
+  padding: 20px;
+  color: #fff;
+  font-size:21px;
+  display:none;
+}
+.notification-success{
+  background-color:#3D9970;
+}
+
+.notification-show{
+  display:block!important;
+}
+
+/*Loged in*/
+.btn-default {
+  margin-left: 18px;
+  width: 70px;
+  color: #333;
+  background-color: #f9f9f9;
+  border-color: #ccc;
+  border: 1px solid;
+  text-align: center;
+  cursor: pointer;
+  color: #5e5e5e;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fefefe), color-stop(100%, #f9f9f9)), #f9f9f9;
+  background: -moz-linear-gradient(#fefefe, #f9f9f9), #f9f9f9;
+  background: -webkit-linear-gradient(#fefefe, #f9f9f9), #f9f9f9;
+  background: linear-gradient(#fefefe, #f9f9f9), #f9f9f9;
+  border-color: #c3c3c3 #c3c3c3 #bebebe;
+  -moz-box-shadow: rgba(0, 0, 0, 0.06) 0 1px 0, rgba(255, 255, 255, 0.1) 0 1px 0 0 inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.06) 0 1px 0, rgba(255, 255, 255, 0.1) 0 1px 0 0 inset;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 1px 0, rgba(255, 255, 255, 0.1) 0 1px 0 0 inset;
+}
 
 #logo a{
-  font-family: "Arial Black";
+  font-family: "Gill Sans";
   letter-spacing: -2.5px;
+  font-weight: 650;
   text-transform: uppercase;
-  font-size: xx-large;
-  color: #730E15;
+  font-size: 40px;
+  color: #263238;
+  margin-left: 60px;
+}
+
+#navbar-tekst {
+  font-size: 17px;
+  font-weight: 300;
+  font-family: Georgia, Serif;
+}
+
+#navbar-potvrdi {
+  font-size: 14px;
+  font-weight: 250;
+  font-family: Georgia, Serif;
+}
+
+#navbar-prijava {
+  font-size: 19px;
+  font-weight: 350;
+  font-family: Georgia, Serif;
+  margin-right: 70px;
 }
 
 #username {
@@ -25,7 +136,7 @@
 body {
   background-color: burlywood;
   background-repeat: no-repeat;
-  background: url("body.jpg") no-repeat center center fixed;
+  background: url("pozadina07.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -95,6 +206,8 @@ body {
 }
 
 .register-actions {
+  margin-left: -35px;
+  margin-top: 30px;
   margin-bottom: 15px;
 }
 

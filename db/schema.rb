@@ -22,12 +22,6 @@ ActiveRecord::Schema.define(version: 20170105143055) do
     t.string   "user_email", limit: 255
   end
 
-  create_table "ingredientes", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "ingredients", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
@@ -56,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170105143055) do
   create_table "recipes", force: :cascade do |t|
     t.string   "title",              limit: 255
     t.text     "description",        limit: 65535
+    t.text     "ingredients",        limit: 65535
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "user_id",            limit: 4
