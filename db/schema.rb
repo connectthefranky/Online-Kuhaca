@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170108193316) do
   create_table "recipes", force: :cascade do |t|
     t.string   "title",              limit: 255
     t.text     "description",        limit: 65535
+    t.text     "ingredients",        limit: 65535
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "user_id",            limit: 4
