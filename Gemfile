@@ -4,7 +4,7 @@ gem 'devise', '~> 4.2'
 gem 'paperclip', '~> 5.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
-#search gems
+gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'#search gems
 gem 'sunspot_rails'
 group :development do
   gem 'sunspot_solr'
