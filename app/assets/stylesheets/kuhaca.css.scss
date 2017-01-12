@@ -2,6 +2,54 @@
 @import "bootstrap.css";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 
+.pocetna-carousel {
+  padding-top: 0px;
+  width: 100%;
+}
+
+.pocetna-okvir-za-tekst {
+  height: 170px;
+  width: 350px;
+  background-color: #33691E;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  border-radius: 80px;
+  margin-bottom: 30px;
+  float: left;
+  margin-right: 20px;
+  border-radius: 15px;
+}
+
+.pocetna-naslov {
+  font-size: 45px;
+  color: white;
+  font-weight: 300;
+  font-family: Georgia, Serif;
+}
+
+.pocetna-links {
+  font-size: 18px;
+  color: #76FF03;
+  font-weight: 350;
+  font-family: Georgia, Serif;
+}
+
+.pocetna-tekst {
+  font-size: 13px;
+  color: #76FF03;
+  font-weight: 300;
+  font-family: Georgia, Serif;
+}
+
+#myCarousel .nav a small {
+  display:block;
+}
+#myCarousel .nav {
+  background:#eee;
+}
+#myCarousel .nav a {
+  border-radius:0px;
+}
 
 .pregledaj-tekst {
   font-size: 12px;
