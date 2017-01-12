@@ -28,6 +28,22 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = current_user.recipes.build
+
+
+    MeasuringUnit.create(measure: "kg");
+    MeasuringUnit.create(measure: "dg");
+    MeasuringUnit.create(measure: "g");
+    MeasuringUnit.create(measure: "mg");
+    MeasuringUnit.create(measure: "komad(a)");
+    MeasuringUnit.create(measure: "l");
+    MeasuringUnit.create(measure: "dl");
+    MeasuringUnit.create(measure: "cl");
+    MeasuringUnit.create(measure: "ml");
+    MeasuringUnit.create(measure: "malih žlica");
+    MeasuringUnit.create(measure: "velikih žlica");
+    MeasuringUnit.create(measure: "čaša");
+
+
   end
 
 

@@ -62,6 +62,12 @@
                     <label class="sr-only" for="Mjera">Mjera</label>
                     <input type="text" class="form-control" id="measure" placeholder="Mjera">
                   </div>
+                  <select class="custom-select select-height form-group form-ingred" id="measuring_unit" placeholder = "Mjerna jedinica">
+                    <option></option>
+                    <% MeasuringUnit.all.each do |unit| %>
+                      <option value= "<%= unit.measure %>" ><%= unit.measure %></option>
+                    <% end %>
+                  </select>
                   <div class="form-group form-ingred">
                     <label class="sr-only" for="Sastojak">Sastojak</label>
                     <input type="text" class="form-control" id="ingredient" placeholder="Sastojak">
@@ -73,8 +79,11 @@
                           var list = document.getElementById("list-group");
                           var measure = document.getElementById("measure");
                           var ingredient = document.getElementById("ingredient");
+                          var measuring_unit = document.getElementById("measuring_unit");
 
-                          var measurementRegex = /^([0-9][ ])*([a-z]|[A-Z]|[čćđšž])+[ ]*$/i;
+                          measure.value += " " + measuring_unit.value
+
+                          var measurementRegex = /^([0-9]*[ ])*([a-z]|[A-Z]|[čćđšž]|[()])+[ ]*$/i;
                           var ingredientRegex = /^([a-z]|[A-Z]|[čćđšž]|[ ])+$/i;
 
 
