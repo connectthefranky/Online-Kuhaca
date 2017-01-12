@@ -29,9 +29,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = current_user.recipes.build
 
-=begin
-    Tu sam napunio bazu mjerama jer mi se to činilo najbrže, mada bi trebalo naći lijepše riješenje
-    
+
     MeasuringUnit.create(measure: "kg");
     MeasuringUnit.create(measure: "dg");
     MeasuringUnit.create(measure: "g");
@@ -44,7 +42,7 @@ class RecipesController < ApplicationController
     MeasuringUnit.create(measure: "malih žlica");
     MeasuringUnit.create(measure: "velikih žlica");
     MeasuringUnit.create(measure: "čaša");
-=end
+
 
   end
 
