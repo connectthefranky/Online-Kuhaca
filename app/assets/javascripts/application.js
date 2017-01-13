@@ -16,25 +16,12 @@
 //= require bootstrap-sprockets
 
 $(document).ready( function() {
-    $('#myCarousel').carousel({
-        interval: 3000
-    });
-
     var clickEvent = false;
-    $('#myCarousel').on('click', '.nav a', function() {
+    $('#myCarousel').on('click', '.nav li', function() {
         clickEvent = true;
-        $('.nav li').removeClass('active');
-        $(this).parent().addClass('active');
-    }).on('slid.bs.carousel', function(e) {
-        if(!clickEvent) {
-            var count = $('.nav').children().length -1;
-            var current = $('.nav li.active');
-            current.removeClass('active').next().addClass('active');
-            var id = parseInt(current.data('slide-to'));
-            if(count == id) {
-                $('.nav li').first().addClass('active');
-            }
-        }
-        clickEvent = false;
+        $('.nav li').removeClass('slider-tabs-active');
+        $('.nav li').addClass('slider-tabs');
+        $(this).removeClass('slider-tabs');
+        $(this).addClass('slider-tabs-active');
     });
 });

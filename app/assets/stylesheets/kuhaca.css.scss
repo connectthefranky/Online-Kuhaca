@@ -2,9 +2,34 @@
 @import "bootstrap.css";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 
+// tabovi sa kojima mjenjamo prikaz slika na pocetnoj stranici
+.slider-tabs-active {
+  background-color: #558B2F;
+  height: 40px;
+  width: 100%/3;
+  color: white;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.slider-tabs {
+  background-color: white;
+  height: 40px;
+  width: 100%/3;
+  color: #558B2F;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 17px;
+  font-weight: 200;
+}
+
+
 .pocetna-carousel {
-  padding-top: 0px;
+  margin-top: -20px;
   width: 100%;
+  margin-left: -13px;
 }
 
 .pocetna-okvir-za-tekst {
@@ -35,18 +60,23 @@
 }
 
 .pocetna-tekst {
+  align: center;
   font-size: 13px;
   color: #76FF03;
   font-weight: 300;
   font-family: Georgia, Serif;
 }
 
-#myCarousel .nav a small {
-  display:block;
+#myCarousel {
+  width: 102%;
+  height: 600px;
 }
+
 #myCarousel .nav {
   background:#eee;
+  color: #2b542c;
 }
+
 #myCarousel .nav a {
   border-radius:0px;
 }
