@@ -173,8 +173,8 @@ body {
 
 #new-recipe-title {
   padding-bottom: 20px;
-  font-family: "Arial Black";
-  color: whitesmoke;
+  font-family: "Open Sans";
+  color: #777;
 }
 
 .btn-panel {
@@ -188,10 +188,11 @@ body {
   margin-top: 15px;
 }
 
-.well-group {
-  background-color: #428bca;
-  border-color:  gray;
-  color: gray;
+.panel {
+  background-color: #9ccc65;
+  border-color:  #9ccc65;
+  color: #777;
+  font-family: "Open Sans";
 }
 
 .login-actions {
@@ -218,7 +219,7 @@ body {
 }
 
 #recipe_title {
-  color: black;
+  color: #777;
 }
 
 .pre-recipe {
@@ -235,6 +236,9 @@ body {
 .ingredient-link:visited{
   color: #730E15;
 }
+
+
+
 
 .well {
   border: 0;
@@ -278,3 +282,5 @@ body {
   font-family: "Arial Black";
   color: #428bca;
 }
+
+
