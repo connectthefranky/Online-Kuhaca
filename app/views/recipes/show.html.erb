@@ -61,7 +61,7 @@
 							</tr>
 							</body>
 						</table>
-						<% if current_user.present? && current_user.id == @recipe.user_id %>
+						<% if current_user.present? && current_user.id == @recipe.user_id || current_user.email == "lovro.kordis@fer.hr" %>
 								<div align = "center">
 									<%= link_to 'Uredi', edit_recipe_path(@recipe), class: "btn btn-lg btn-primary" %>
 									<%= link_to 'Izbriši', recipe_path(@recipe), method: :delete, class: "btn btn-lg btn-danger", data: { confirm: "Jeste li sigurni da želite obrisati recept?"}%>

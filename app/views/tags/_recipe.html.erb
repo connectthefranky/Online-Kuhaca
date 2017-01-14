@@ -1,9 +1,9 @@
 <div class="row">
   <% obj.each do |recipe| %>
-      <div class="col-xs-offset-3 col-xs-6">
-        <div class="well">
+      <div class="col-xs-offset-3 col-xs-6" style="padding-top:5px">
+        <div class="well-tag">
           <%= link_to (image_tag recipe.image.url(),height: '100', width: '100', class: 'image img-circle'), recipe %>
-          <strong id = "recipe_title"><%= recipe.title %></strong>
+          <strong id = "recipe_title"><%= recipe.title %></strong><br />
         </div>
       </div>
   <% end %>

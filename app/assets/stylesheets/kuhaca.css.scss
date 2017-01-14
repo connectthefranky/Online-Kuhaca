@@ -16,6 +16,10 @@ body {
   border-radius:0!important;
 }
 
+.well-tag{
+  background-color: white;
+}
+
 .well.login-box {
   /*width:400px; */
   margin:0 auto;
@@ -190,7 +194,6 @@ body {
 
 .user-info {
   color: white;
-  background-color: #730E15;
 }
 
 #recipe_title {
@@ -254,7 +257,7 @@ body {
 }
 
 .ingredient-info {
-  background-color: black;
+
 }
 
 .ingredient-info h1{
@@ -358,4 +361,17 @@ body {
   border-width: 0.5px;
   background-color: #F1F8E9 ;
   margin-right: 15px;
+}
+
+.polje-recept {
+  color: #C5E1A5;
+  border-width:2.5px;
+  border-color: #F5F5F5;
+  background-color: #C5E1A5;
+  height: 310px;
+}
+.polje-naslov {
+  color: #212121;
+  font-family: Monaco;
+  margin-top: 3px;
 }
