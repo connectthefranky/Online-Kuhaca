@@ -5712,3 +5712,1630 @@ Processing by RecipesController#index as HTML
   [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
   Rendered layouts/_header.html.erb (4.5ms)
 Completed 200 OK in 560ms (Views: 531.6ms | ActiveRecord: 1.5ms | Solr: 16.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 16:37:43 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PagesController#home as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered shared/_home_jumbotron.html.erb (35.5ms)
+  Rendered pages/home.html.erb within layouts/application (61.0ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+Completed 200 OK in 8828ms (Views: 8805.0ms | ActiveRecord: 4.0ms | Solr: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 16:38:26 +0100
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered shared/_home_jumbotron.html.erb (7.0ms)
+  Rendered pages/home.html.erb within layouts/application (39.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 527ms (Views: 523.5ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca.self-de5cdcb5bd4a9e605febc088b959a04ee807ec0c23e1e8723a772d02d2df6ad1.css?body=1" for 127.0.0.1 at 2017-01-14 16:38:27 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 16:38:28 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for 127.0.0.1 at 2017-01-14 16:38:28 +0100
+
+
+Started GET "/recipes" for 127.0.0.1 at 2017-01-14 16:39:25 +0100
+Processing by RecipesController#index as HTML
+  [1m[32mSOLR Request (14.0ms)[0m  [ path=[1m[1mselect[0m parameters={fq: [1m[1m["type:Recipe"][0m, start: [1m[1m0[0m, rows: [1m[1m30[0m, q: [1m[1m"*:*"[0m} ]
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` IN (1, 2)
+  Rendered recipes/_recipe.html.erb (3.0ms)
+  Rendered recipes/index.html.erb within layouts/application (21.9ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (5.1ms)
+Completed 200 OK in 381ms (Views: 317.8ms | ActiveRecord: 3.0ms | Solr: 14.0ms)
+
+
+Started GET "/recipes/1" for 127.0.0.1 at 2017-01-14 16:39:30 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecipe Load (2.0ms)[0m  SELECT  `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mMeasurement Load (1.0ms)[0m  SELECT `measurements`.* FROM `measurements` WHERE `measurements`.`recipe_id` = 1
+  [1m[36mIngredient Load (1.0ms)[0m  [1mSELECT  `ingredients`.* FROM `ingredients` WHERE `ingredients`.`id` = 1 LIMIT 1[0m
+  [1m[35mRecipeTag Load (1.0ms)[0m  SELECT `recipe_tags`.* FROM `recipe_tags` WHERE `recipe_tags`.`recipe_id` = 1
+  [1m[36mTag Load (0.5ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mTag Load (0.5ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mTag Load (1.5ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mRating Load (0.5ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`recipe_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`recipe_id` = 1[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.5ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`recipe_id` = 1 AND `ratings`.`user_id` = 2
+  Rendered recipes/_rating_input.html.erb (91.6ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT `comments`.* FROM `comments`[0m
+  Rendered recipes/show.html.erb within layouts/application (851.6ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 2327ms (Views: 1888.6ms | ActiveRecord: 37.0ms | Solr: 0.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-01-14 16:40:16 +0100
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CaSzxk3qezTsKzt/5Zka9F3o7RjzzP9vZ5rdwemwKdHjipa2KsHG/4bYdsLSVebjnaYPPgNjwUPe85n4jJ9jfg==", "comment"=>{"comment"=>"glupi komentar", "recipe_id"=>"1"}, "commit"=>"Dodaj komentar"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.3ms)[0m  INSERT INTO `comments` (`comment`, `recipe_id`, `user_id`, `user_email`, `created_at`, `updated_at`) VALUES ('glupi komentar', 1, 2, 'lovro.kordis@fer.hr', '2017-01-14 15:40:16', '2017-01-14 15:40:16')
+  [1m[36m (47.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT  `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/recipes/1
+Completed 302 Found in 94ms (ActiveRecord: 63.5ms)
+
+
+Started GET "/recipes/1" for 127.0.0.1 at 2017-01-14 16:40:16 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.5ms)[0m  [1mSELECT  `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mMeasurement Load (0.5ms)[0m  [1mSELECT `measurements`.* FROM `measurements` WHERE `measurements`.`recipe_id` = 1[0m
+  [1m[35mIngredient Load (1.0ms)[0m  SELECT  `ingredients`.* FROM `ingredients` WHERE `ingredients`.`id` = 1 LIMIT 1
+  [1m[36mRecipeTag Load (0.5ms)[0m  [1mSELECT `recipe_tags`.* FROM `recipe_tags` WHERE `recipe_tags`.`recipe_id` = 1[0m
+  [1m[35mTag Load (0.5ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mRating Load (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`recipe_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`recipe_id` = 1  [["recipe_id", 1]]
+  [1m[36mRating Load (0.5ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`recipe_id` = 1 AND `ratings`.`user_id` = 2[0m
+  Rendered recipes/_rating_input.html.erb (3.5ms)
+  [1m[35mComment Load (0.5ms)[0m  SELECT `comments`.* FROM `comments`
+  Rendered recipes/show.html.erb within layouts/application (55.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 310ms (Views: 292.3ms | ActiveRecord: 4.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 16:40:17 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 16:40:28 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (41.0ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 314ms (Views: 295.3ms | ActiveRecord: 4.0ms | Solr: 0.0ms)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 16:44:26 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 308ms (Views: 303.2ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 16:44:27 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 16:47:04 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 516ms (Views: 509.2ms | ActiveRecord: 2.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 16:47:05 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 16:49:34 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 5381ms (Views: 5374.3ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca.self-a193ef7155072bc2bab9249783c111ce088d9926a39716c3f94cbe4816ecb1ee.css?body=1" for 127.0.0.1 at 2017-01-14 16:49:40 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 16:49:40 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 16:50:38 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (13.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 508ms (Views: 499.0ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 16:50:40 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 16:52:59 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 5352ms (Views: 5344.3ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca.self-ac89beedfbccbfc4a1b2f4fadb4aa190413d99312f67551393ba62dafd4283cf.css?body=1" for 127.0.0.1 at 2017-01-14 16:53:04 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 16:53:05 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 16:57:37 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 335ms (Views: 328.2ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 16:57:38 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 16:58:32 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (31.0ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 563ms (Views: 553.7ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 16:58:34 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 16:58:47 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 267ms (Views: 262.6ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 16:58:48 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:02:22 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 333ms (Views: 325.0ms | ActiveRecord: 2.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:02:22 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:02:26 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (30.0ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 552ms (Views: 536.9ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:02:27 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:04:25 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 269ms (Views: 263.1ms | ActiveRecord: 0.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:04:26 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:05:19 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 273ms (Views: 267.5ms | ActiveRecord: 2.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:05:20 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:05:30 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 272ms (Views: 266.0ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:05:31 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:05:37 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 451ms (Views: 444.1ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:05:38 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:06:11 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (37.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 510ms (Views: 502.8ms | ActiveRecord: 2.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:06:12 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:06:43 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 502ms (Views: 494.1ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:06:44 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:06:54 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 285ms (Views: 280.7ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:06:55 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:15:44 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 280ms (Views: 273.8ms | ActiveRecord: 2.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:15:44 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:25:57 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (14.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 462ms (Views: 453.7ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:25:58 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:26:37 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (6.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (29.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 687ms (Views: 464.2ms | ActiveRecord: 6.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:26:39 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:27:37 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 267ms (Views: 260.6ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:27:38 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:28:04 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 280ms (Views: 275.4ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:28:04 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:28:33 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (28.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 517ms (Views: 509.1ms | ActiveRecord: 2.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:28:34 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:28:39 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (6.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (65.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 563ms (Views: 551.2ms | ActiveRecord: 7.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:28:40 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:28:58 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (55.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 617ms (Views: 610.2ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:29:00 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:29:11 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (30.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 588ms (Views: 567.1ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:29:13 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:30:06 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (76.1ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 7232ms (Views: 7222.2ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca.self-3948c2f05edd358be599f955ba749743ee535d0cb6684cd67974ca5b1dc9c38e.css?body=1" for 127.0.0.1 at 2017-01-14 17:30:14 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:30:15 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:30:38 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (16.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 6950ms (Views: 6938.6ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca.self-47508a8092ee2f1cf5a86d966b77cd4be9a4046b1cf47debc4bd13b0046c31b9.css?body=1" for 127.0.0.1 at 2017-01-14 17:30:45 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:30:46 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:34:07 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 5687ms (Views: 5678.9ms | ActiveRecord: 2.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca.self-4f455084eec1deace316114a3f63865187d47ba2e5633fa6ec8542bc24ed146b.css?body=1" for 127.0.0.1 at 2017-01-14 17:34:13 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:34:13 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:34:40 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (14.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 6211ms (Views: 6204.9ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:34:47 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:35:10 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 6438ms (Views: 6423.0ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca.self-324a8fefdeabef16ff5ca305a2deab17ca26ae1ef40a9a12618625576326ec8f.css?body=1" for 127.0.0.1 at 2017-01-14 17:35:17 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:35:17 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:35:30 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (68.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 6509ms (Views: 6501.6ms | ActiveRecord: 2.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca.self-3e72264c9d0637fafe91d661c4c9dde5b6465090db6ad1185a3b8a3fedc297af.css?body=1" for 127.0.0.1 at 2017-01-14 17:35:36 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:35:37 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:35:45 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (14.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 6476ms (Views: 6446.5ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca.self-c0a2d0ab4c01e2e3143b7fa0f56f4e868dc4b8b3c7c558e05c381da43d0c059f.css?body=1" for 127.0.0.1 at 2017-01-14 17:35:52 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:35:52 +0100
+
+
+Started GET "/recipes/1" for 127.0.0.1 at 2017-01-14 17:36:22 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT  `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mMeasurement Load (1.0ms)[0m  [1mSELECT `measurements`.* FROM `measurements` WHERE `measurements`.`recipe_id` = 1[0m
+  [1m[35mIngredient Load (1.0ms)[0m  SELECT  `ingredients`.* FROM `ingredients` WHERE `ingredients`.`id` = 1 LIMIT 1
+  [1m[36mRecipeTag Load (1.0ms)[0m  [1mSELECT `recipe_tags`.* FROM `recipe_tags` WHERE `recipe_tags`.`recipe_id` = 1[0m
+  [1m[35mTag Load (1.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTag Load (1.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mRating Load (0.5ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`recipe_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`recipe_id` = 1  [["recipe_id", 1]]
+  [1m[36mRating Load (1.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`recipe_id` = 1 AND `ratings`.`user_id` = 2[0m
+  Rendered recipes/_rating_input.html.erb (4.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT `comments`.* FROM `comments`
+  Rendered recipes/show.html.erb within layouts/application (54.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 302ms (Views: 290.8ms | ActiveRecord: 9.0ms | Solr: 0.0ms)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:43:22 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (21.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 499ms (Views: 492.3ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:43:23 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:43:42 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (19.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 544ms (Views: 538.3ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:43:43 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:44:38 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (20.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 506ms (Views: 493.4ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:44:39 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:45:23 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 546ms (Views: 539.4ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:45:24 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:45:32 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (90.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 704ms (Views: 694.7ms | ActiveRecord: 0.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:45:33 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:45:47 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (14.5ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 519ms (Views: 510.2ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:45:48 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:46:03 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (124.1ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 688ms (Views: 669.9ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:46:05 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:46:53 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (22.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 505ms (Views: 473.0ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:46:55 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:51:26 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 261ms (Views: 256.4ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:51:27 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:51:53 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 296ms (Views: 289.3ms | ActiveRecord: 2.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:51:53 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:55:47 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (19.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 446ms (Views: 438.3ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:55:48 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:56:06 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (41.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 509ms (Views: 494.0ms | ActiveRecord: 2.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:56:07 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 17:56:27 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (24.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 481ms (Views: 475.1ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 17:56:28 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:01:22 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (17.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 488ms (Views: 454.5ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:01:23 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:02:50 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (15.0ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 405ms (Views: 397.3ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:02:51 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:04:56 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (12.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 700ms (Views: 486.4ms | ActiveRecord: 3.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:04:58 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:05:18 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 271ms (Views: 266.3ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:05:19 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:06:13 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 267ms (Views: 262.7ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:06:13 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:11:20 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (19.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 450ms (Views: 442.5ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:11:21 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:14:30 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (14.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 517ms (Views: 510.1ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:14:31 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:15:09 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (20.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 493ms (Views: 483.2ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:15:10 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:16:35 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (23.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 535ms (Views: 522.6ms | ActiveRecord: 2.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:16:36 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:17:00 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 283ms (Views: 278.9ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:17:01 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:19:39 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 278ms (Views: 271.4ms | ActiveRecord: 2.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:19:39 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:25:21 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (1.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (18.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 458ms (Views: 449.8ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:25:22 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:26:36 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (13.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 526ms (Views: 420.5ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:26:37 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:28:05 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.5ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (13.5ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 473ms (Views: 465.8ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:28:06 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:29:37 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mMeasuringUnit Load (0.0ms)[0m  SELECT `measuring_units`.* FROM `measuring_units`
+  Rendered recipes/new.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 5508ms (Views: 5502.7ms | ActiveRecord: 0.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca.self-66e295a0675e5b76eab8d3f3280cd573239b0706fc44ae40aedc922c523b680b.css?body=1" for 127.0.0.1 at 2017-01-14 18:29:43 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:29:43 +0100
+
+
+Started GET "/recipes" for 127.0.0.1 at 2017-01-14 18:35:56 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by RecipesController#index as HTML
+  [1m[32mSOLR Request (2056.2ms)[0m  [ path=[1m[1mselect[0m parameters={fq: [1m[1m["type:Recipe"][0m, start: [1m[1m0[0m, rows: [1m[1m30[0m, q: [1m[1m"*:*"[0m} ]
+Completed 500 Internal Server Error in 2103ms (ActiveRecord: 0.0ms)
+
+RSolr::Error::ConnectionRefused (No connection could be made because the target machine actively refused it. - {:data=>"fq=type%3ARecipe&start=0&rows=30&q=*%3A*", :method=>:post, :params=>{:wt=>:ruby}, :query=>"wt=ruby", :headers=>{"Content-Type"=>"application/x-www-form-urlencoded; charset=UTF-8"}, :path=>"select", :uri=>#<URI::HTTP http://localhost:8982/solr/default/select?wt=ruby>, :open_timeout=>nil, :read_timeout=>nil, :retry_503=>nil, :retry_after_limit=>nil}):
+  app/controllers/recipes_controller.rb:14:in `index'
+
+
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1154.7ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (2.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (1044.6ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (2383.9ms)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:36:15 +0100
+Processing by RecipesController#new as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mMeasuringUnit Load (2.0ms)[0m  [1mSELECT `measuring_units`.* FROM `measuring_units`[0m
+  Rendered recipes/new.html.erb within layouts/application (110.8ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 7722ms (Views: 7599.2ms | ActiveRecord: 19.0ms | Solr: 2056.2ms)
+
+
+Started GET "/assets/kuhaca.self-6dadf59923b9a7403d10bdf419c79317fb988cb7055c97b678b36d0cc6d77af2.css?body=1" for 127.0.0.1 at 2017-01-14 18:36:47 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:36:47 +0100
+
+
+Started GET "/recipes" for 127.0.0.1 at 2017-01-14 18:37:18 +0100
+Processing by RecipesController#index as HTML
+  [1m[32mSOLR Request (203.1ms)[0m  [ path=[1m[1mselect[0m parameters={fq: [1m[1m["type:Recipe"][0m, start: [1m[1m0[0m, rows: [1m[1m30[0m, q: [1m[1m"*:*"[0m} ]
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` IN (1, 2)
+  Rendered recipes/_recipe.html.erb (5.0ms)
+  Rendered recipes/index.html.erb within layouts/application (30.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (6.0ms)
+Completed 200 OK in 615ms (Views: 399.1ms | ActiveRecord: 0.0ms | Solr: 203.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:37:29 +0100
+Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered shared/_home_jumbotron.html.erb (3.5ms)
+  Rendered pages/home.html.erb within layouts/application (18.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 289ms (Views: 287.1ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:45:25 +0100
+Processing by PagesController#home as HTML
+  Rendered shared/_home_jumbotron.html.erb (11.0ms)
+  Rendered pages/home.html.erb within layouts/application (34.0ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (6.1ms)
+Completed 200 OK in 6236ms (Views: 6233.6ms | ActiveRecord: 1.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca.self-4ea2d7686bd2a58dd8e309288b254f9a82abafb3442af2047c251fe80bb21b0d.css?body=1" for 127.0.0.1 at 2017-01-14 18:45:31 +0100
+
+
+Started GET "/assets/application.self-d75322c06e4d9be89b124ef62ee3ca1cb674df480fcfd442c298ecef68da1d48.js?body=1" for 127.0.0.1 at 2017-01-14 18:45:31 +0100
+
+
+Started GET "/images/eat-clean.jpg" for 127.0.0.1 at 2017-01-14 18:45:31 +0100
+
+ActionController::RoutingError (No route matches [GET] "/images/eat-clean.jpg"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.6) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:9:in `require'
+  bin/rails:9:in `<main>'
+
+
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (10.5ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1497.1ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (1399.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (3408.8ms)
+
+
+Started GET "/images/eat-clean.jpg" for 127.0.0.1 at 2017-01-14 18:45:37 +0100
+
+ActionController::RoutingError (No route matches [GET] "/images/eat-clean.jpg"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.6) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:9:in `require'
+  bin/rails:9:in `<main>'
+
+
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1318.3ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (817.4ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (1912.4ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:45:41 +0100
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-01-14 18:46:04 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 35ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:46:04 +0100
+Processing by PagesController#home as HTML
+  Rendered shared/_home_jumbotron.html.erb (10.0ms)
+  Rendered pages/home.html.erb within layouts/application (28.0ms)
+  Rendered layouts/_header.html.erb (8.0ms)
+Completed 200 OK in 323ms (Views: 322.3ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/images/eat-clean.jpg" for 127.0.0.1 at 2017-01-14 18:46:05 +0100
+
+ActionController::RoutingError (No route matches [GET] "/images/eat-clean.jpg"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.6) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:9:in `require'
+  bin/rails:9:in `<main>'
+
+
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1153.9ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (1238.9ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (2921.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-01-14 18:46:14 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (15.5ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 303ms (Views: 299.7ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/images/eat-clean.jpg" for 127.0.0.1 at 2017-01-14 18:46:15 +0100
+
+ActionController::RoutingError (No route matches [GET] "/images/eat-clean.jpg"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.6) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:9:in `require'
+  bin/rails:9:in `<main>'
+
+
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1351.7ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (1512.5ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (3299.8ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-01-14 18:46:21 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5JD8hkxDev5xulbuUmIH4HfRC3TccviDpocTrQbyh8cRFF3qrugFBl5tTML9hv6bVvnUyi32zogNq7QFCwRwZQ==", "user"=>{"email"=>"kordis.lovro@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Prijava"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'kordis.lovro@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 6ms (ActiveRecord: 1.0ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5JD8hkxDev5xulbuUmIH4HfRC3TccviDpocTrQbyh8cRFF3qrugFBl5tTML9hv6bVvnUyi32zogNq7QFCwRwZQ==", "user"=>{"email"=>"kordis.lovro@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Prijava"}
+  Rendered devise/sessions/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 488ms (Views: 287.2ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:46:22 +0100
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-01-14 18:46:33 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"21y2kI1h0/suA/k02Zsy5E+/7zxe95fCzj2rpkr9L+ku2Bf8b8qsAwHU4xh2f8ufbpcwgq9zocllEQwORwvYSw==", "user"=>{"email"=>"lovro.kordis@fer.hr", "password"=>"[FILTERED]"}, "commit"=>"Prijava"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lovro.kordis@fer.hr'  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (39.2ms)[0m  UPDATE `users` SET `current_sign_in_at` = '2017-01-14 17:46:33', `sign_in_count` = 2, `updated_at` = '2017-01-14 17:46:33' WHERE `users`.`id` = 2
+  [1m[36m (49.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 453ms (ActiveRecord: 90.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:46:34 +0100
+Processing by PagesController#home as HTML
+  Rendered shared/_home_jumbotron.html.erb (9.0ms)
+  Rendered pages/home.html.erb within layouts/application (24.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 288ms (Views: 287.2ms | ActiveRecord: 0.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:46:34 +0100
+
+
+Started GET "/images/eat-clean.jpg" for 127.0.0.1 at 2017-01-14 18:46:34 +0100
+
+ActionController::RoutingError (No route matches [GET] "/images/eat-clean.jpg"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.6) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:9:in `require'
+  bin/rails:9:in `<main>'
+
+
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1800.2ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.5ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (2139.4ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (5212.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:48:53 +0100
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (8.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (5.0ms)
+Completed 200 OK in 294ms (Views: 291.3ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/images/eat-clean.jpg" for 127.0.0.1 at 2017-01-14 18:48:54 +0100
+
+ActionController::RoutingError (No route matches [GET] "/images/eat-clean.jpg"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.9.1) lib/eventmachine.rb:193:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.6) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.6) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.6) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:9:in `require'
+  bin/rails:9:in `<main>'
+
+
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1536.8ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (892.1ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (2387.2ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:48:59 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:50:18 +0100
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (26.5ms)
+  [1m[35mUser Load (4.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_header.html.erb (10.5ms)
+Completed 200 OK in 581ms (Views: 575.8ms | ActiveRecord: 4.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca-fab375de32f3efb9eeb5e7417a1863a4cff53b12217d490529e901df6aa1b611.png" for 127.0.0.1 at 2017-01-14 18:50:18 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:50:19 +0100
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-01-14 18:50:31 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:50:31 +0100
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (59.1ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 363ms (Views: 362.0ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-01-14 18:50:39 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 286ms (Views: 284.0ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-01-14 18:50:47 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"edb3guxprb5yZk7STw82dqpK1i6YXL6UdYGYKnJJPoNSff4t0d0Dy/l2A39btCoFscPKDfgC5tC+r3nU6buRgQ==", "user"=>{"email"=>"lovro.kordis@fer.hr", "password"=>"[FILTERED]"}, "commit"=>"Prijava"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lovro.kordis@fer.hr'  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (42.7ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2017-01-14 17:46:33', `current_sign_in_at` = '2017-01-14 17:50:47', `sign_in_count` = 3, `updated_at` = '2017-01-14 17:50:47' WHERE `users`.`id` = 2
+  [1m[36m (35.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 412ms (ActiveRecord: 78.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:50:47 +0100
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_header.html.erb (6.0ms)
+Completed 200 OK in 300ms (Views: 299.7ms | ActiveRecord: 1.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:50:48 +0100
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-01-14 18:51:56 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:51:57 +0100
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 289ms (Views: 287.7ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-01-14 18:52:51 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 324ms (Views: 322.2ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-01-14 18:52:55 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i9UQtrlJBkrHSJaJPOxgudT8ofyShf9ugYCtb5A3eUJYKv1BjTNU3OJH4BUw5U7F/WCw0YB4w2bKZqU0qacRXQ==", "user"=>{"email"=>"lovro.kordis@fer.hr", "password"=>"[FILTERED]"}, "commit"=>"Prijava"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lovro.kordis@fer.hr'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 293ms (ActiveRecord: 0.5ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i9UQtrlJBkrHSJaJPOxgudT8ofyShf9ugYCtb5A3eUJYKv1BjTNU3OJH4BUw5U7F/WCw0YB4w2bKZqU0qacRXQ==", "user"=>{"email"=>"lovro.kordis@fer.hr", "password"=>"[FILTERED]"}, "commit"=>"Prijava"}
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 866ms (Views: 502.0ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:52:57 +0100
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-01-14 18:53:13 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6QyhK4URdHgnz42eyoQwehVnFLdBTEkwyk2mWeLCN2w680zcsWsm7gLA+wLGjR4GPPsFmlOxdTiBq64C21Jfcw==", "user"=>{"email"=>"lovro.kordis@fer.hr", "password"=>"[FILTERED]"}, "commit"=>"Prijava"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lovro.kordis@fer.hr'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (48.2ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2017-01-14 17:50:47', `current_sign_in_at` = '2017-01-14 17:53:13', `sign_in_count` = 4, `updated_at` = '2017-01-14 17:53:13' WHERE `users`.`id` = 2[0m
+  [1m[35m (38.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 410ms (ActiveRecord: 88.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:53:13 +0100
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 327ms (Views: 325.6ms | ActiveRecord: 0.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:53:14 +0100
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-01-14 18:53:40 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:53:40 +0100
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 259ms (Views: 258.3ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:56:15 +0100
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 538ms (Views: 536.5ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:56:16 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:56:20 +0100
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 236ms (Views: 235.7ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:56:40 +0100
+Processing by PagesController#home as HTML
+  Rendered shared/_home_jumbotron.html.erb (1.0ms)
+  Rendered pages/home.html.erb within layouts/application (18.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 271ms (Views: 270.2ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:56:41 +0100
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-01-14 18:57:34 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 385ms (Views: 383.1ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-01-14 18:57:49 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UTiCP6c6Op0+6/QLeproSMwKM7TvlUwipy9zRYexzKgc8wfy2LNjNWpLo/nmML9AEoLYZUbVPrUNW58N8tv+AA==", "user"=>{"email"=>"lovro.kordis@fer.hr", "password"=>"[FILTERED]"}, "commit"=>"Prijava"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lovro.kordis@fer.hr'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (10.0ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2017-01-14 17:53:13', `current_sign_in_at` = '2017-01-14 17:57:50', `sign_in_count` = 5, `updated_at` = '2017-01-14 17:57:50' WHERE `users`.`id` = 2[0m
+  [1m[35m (35.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 420ms (ActiveRecord: 46.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-14 18:57:50 +0100
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered shared/_home_jumbotron.html.erb (3.5ms)
+  Rendered pages/home.html.erb within layouts/application (19.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 279ms (Views: 277.1ms | ActiveRecord: 0.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-14 18:57:51 +0100
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2017-01-14 18:57:54 +0100
+Processing by RecipesController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mMeasuringUnit Load (0.5ms)[0m  [1mSELECT `measuring_units`.* FROM `measuring_units`[0m
+  Rendered recipes/new.html.erb within layouts/application (25.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 624ms (Views: 615.7ms | ActiveRecord: 1.0ms | Solr: 0.0ms)

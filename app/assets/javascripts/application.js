@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+
+$(document).ready( function() {
+    var clickEvent = false;
+    $('#myCarousel').on('click', '.nav li', function() {
+        clickEvent = true;
+        $('.nav li').removeClass('slider-tabs-active');
+        $('.nav li').addClass('slider-tabs');
+        $(this).removeClass('slider-tabs');
+        $(this).addClass('slider-tabs-active');
+    });
+});
