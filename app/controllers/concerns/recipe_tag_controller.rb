@@ -1,4 +1,4 @@
-lass RecipeTagController < ActionController::Base
+class RecipeTagController < ActionController::Base
 
   before_action :set_measurement, only: [:destroy]
 

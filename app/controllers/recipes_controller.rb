@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = current_user.recipes.build
 
-
+=begin
     MeasuringUnit.create(measure: "kg");
     MeasuringUnit.create(measure: "dg");
     MeasuringUnit.create(measure: "g");
@@ -42,7 +42,7 @@ class RecipesController < ApplicationController
     MeasuringUnit.create(measure: "malih žlica");
     MeasuringUnit.create(measure: "velikih žlica");
     MeasuringUnit.create(measure: "čaša");
-
+=end
 
   end
 
@@ -139,10 +139,10 @@ class RecipesController < ApplicationController
         end
 
         array = strLine.split("\t")
-        ingredient = Ingredient.create(name: array[1].strip)
+        ingredient = Ingredient.create(name: array[1])
         @ingrs << ingredient
-        @measurs << Measurement.create(ingredient_id: ingredient.id, recipe_id: @recipe.id, measure: array[0].strip)
-      end
+        @measurs << Measurement.create(ingredient_id: ingredient.id, recipe_id: @recipe.id, measure: array[0])
+    end
 
     end
 
@@ -155,12 +155,15 @@ class RecipesController < ApplicationController
           next
         end
 
-        if strLine.blank?
+        if strLine.strip.blank?
           next
         end
 
-        tag = Tag.find_or_create_by(title: strLine.strip)
-        @tgs << RecipeTag.create(tag: tag, recipe: @recipe)
+        strLine.split("\n").each do |split|
+
+          tag = Tag.find_or_create_by(title: split)
+          @tgs << RecipeTag.create(tag: tag, recipe: @recipe)
+        end
       end
     end
 
