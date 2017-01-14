@@ -14,7 +14,7 @@ class Recipe < ActiveRecord::Base
   validates :description, presence: true, length: { minimum: 10 }
   validates :user_id, presence: true
 
-  has_attached_file :image
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100" }, :default_url => "/images/:style/default.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
 	searchable do

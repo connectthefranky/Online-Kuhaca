@@ -39,6 +39,9 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = current_user.recipes.build(recipe_params)
+    # stavljamo sliku koja je deafultna ako nismo odradili
+    # @rrecipe.image ||= "/assets/images/default.png"
+    #s @recipe.image_content_type = "/assets/images/default_image.jpg" if @recipe.image.empty?
     @recipe.user = current_user
     @recipe.save
     @measurs = Array.new
