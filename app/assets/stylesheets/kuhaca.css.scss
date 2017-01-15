@@ -16,6 +16,10 @@ body {
   border-radius:0!important;
 }
 
+.well-tag{
+  background-color: white;
+}
+
 .well.login-box {
   /*width:400px; */
   margin:0 auto;
@@ -65,30 +69,6 @@ body {
 
 .notification-show{
   display:block!important;
-}
-
-/*Loged in*/
-.btn-default {
-  margin-left: 18px;
-  width: 70px;
-  color: #333;
-  background-color: #f9f9f9;
-  border-color: #ccc;
-  border: 1px solid;
-  text-align: center;
-  cursor: pointer;
-  color: #5e5e5e;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fefefe), color-stop(100%, #f9f9f9)), #f9f9f9;
-  background: -moz-linear-gradient(#fefefe, #f9f9f9), #f9f9f9;
-  background: -webkit-linear-gradient(#fefefe, #f9f9f9), #f9f9f9;
-  background: linear-gradient(#fefefe, #f9f9f9), #f9f9f9;
-  border-color: #c3c3c3 #c3c3c3 #bebebe;
-  -moz-box-shadow: rgba(0, 0, 0, 0.06) 0 1px 0, rgba(255, 255, 255, 0.1) 0 1px 0 0 inset;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.06) 0 1px 0, rgba(255, 255, 255, 0.1) 0 1px 0 0 inset;
-  box-shadow: rgba(0, 0, 0, 0.06) 0 1px 0, rgba(255, 255, 255, 0.1) 0 1px 0 0 inset;
 }
 
 #logo a{
@@ -172,8 +152,8 @@ body {
 
 #new-recipe-title {
   padding-bottom: 20px;
-  font-family: "Arial Black";
-  color: whitesmoke;
+  font-family: "Open Sans";
+  color: #777;
 }
 
 .btn-panel {
@@ -187,10 +167,11 @@ body {
   margin-top: 15px;
 }
 
-.well-group {
-  background-color: #428bca;
-  border-color:  gray;
-  color: gray;
+.panel {
+  background-color: #9ccc65;
+  border-color:  #9ccc65;
+  color: #777;
+  font-family: "Open Sans";
 }
 
 .login-actions {
@@ -213,11 +194,10 @@ body {
 
 .user-info {
   color: white;
-  background-color: #730E15;
 }
 
 #recipe_title {
-  color: black;
+  color: #777;
 }
 
 .pre-recipe {
@@ -235,6 +215,9 @@ body {
   color: #730E15;
 }
 
+
+
+
 .well {
   border: 0;
 }
@@ -243,16 +226,20 @@ body {
   padding: 0;
 }
 
+#list-group-tag {
+  padding: 0;
+}
+
 #ingredients-list-title h3{
   font-family: "Arial Black";
-  color: #428bca;
+  color: #33691E;
   font-size: xx-large;
   letter-spacing: -2px;
   text-transform: uppercase;
 }
 
 #ingredients-list-title {
-  background-color: black;
+  background-color: #E0E0E0;
 }
 
 .delete-ingredient{
@@ -269,17 +256,122 @@ body {
   margin-right: 7px;
 }
 
-.custom-select{
-  height: 35px;
-  width: 100px;
-}
-
-
 .ingredient-info {
-  background-color: black;
+
 }
 
 .ingredient-info h1{
   font-family: "Arial Black";
   color: #428bca;
+}
+
+.custom-select {
+  height: 33px;
+}
+
+// tabovi sa kojima mjenjamo prikaz slika na pocetnoj stranici
+.slider-tabs-active {
+  background-color: #558B2F ;
+  height: 40px;
+  width: 100%/3;
+  color: white;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.slider-tabs {
+  background-color: white;
+  height: 40px;
+  width: 100%/3;
+  color: #558B2F ;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 17px;
+  font-weight: 200;
+}
+
+
+.pocetna-carousel {
+  margin-top: -20px;
+  width: 100%;
+  margin-left: -13px;
+}
+
+.pocetna-okvir-za-tekst {
+  height: 170px;
+  width: 350px;
+  background-color: #33691E ;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  border-radius: 80px;
+  margin-bottom: 30px;
+  float: left;
+  margin-right: 20px;
+  border-radius: 15px;
+}
+
+.pocetna-naslov {
+  font-size: 45px;
+  color: white;
+  font-weight: 300;
+  font-family: Georgia, Serif;
+}
+
+.pocetna-links {
+  font-size: 18px;
+  color: #76FF03 ;
+  font-weight: 350;
+  font-family: Georgia, Serif;
+}
+
+.pocetna-tekst {
+  align: center;
+  font-size: 13px;
+  color: #76FF03 ;
+  font-weight: 300;
+  font-family: Georgia, Serif;
+}
+
+#myCarousel {
+  width: 102%;
+  height: 600px;
+}
+
+#myCarousel .nav {
+  background:#eee;
+  color: #2b542c ;
+}
+
+#myCarousel .nav a {
+  border-radius:0px;
+}
+
+.pregledaj-tekst {
+  font-size: 12px;
+  color: #33691E ;
+}
+
+.pregledaj-button {
+  height: 27px;
+  width: 72px;
+  border: solid;
+  border-color: #33691E ;
+  border-width: 0.5px;
+  background-color: #F1F8E9 ;
+  margin-right: 15px;
+}
+
+.polje-recept {
+  color: #C5E1A5;
+  border-width:2.5px;
+  border-color: #F5F5F5;
+  background-color: #C5E1A5;
+  height: 310px;
+}
+.polje-naslov {
+  color: #212121;
+  font-family: Monaco;
+  margin-top: 3px;
 }
