@@ -5712,3 +5712,76 @@ Processing by RecipesController#index as HTML
   [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
   Rendered layouts/_header.html.erb (4.5ms)
 Completed 200 OK in 560ms (Views: 531.6ms | ActiveRecord: 1.5ms | Solr: 16.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-15 21:48:37 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (229.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PagesController#home as HTML
+  [1m[35mUser Load (31.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered shared/_home_jumbotron.html.erb (210.4ms)
+  Rendered pages/home.html.erb within layouts/application (292.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 24254ms (Views: 24070.6ms | ActiveRecord: 87.3ms | Solr: 0.0ms)
+
+
+Started GET "/assets/kuhaca.self-4b0e66b94921e5219129d85e5a2e3de9080de4dd902bc43ada49b71967c3652a.css?body=1" for 127.0.0.1 at 2017-01-15 21:49:19 +0100
+
+
+Started GET "/assets/application.self-77801bdf2695c27c3aff5c5e828bb10fda11dd59946e7ffc708958f02456e9cb.css?body=1" for 127.0.0.1 at 2017-01-15 21:49:19 +0100
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:19 +0100
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:19 +0100
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:19 +0100
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:19 +0100
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:19 +0100
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:19 +0100
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:19 +0100
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:19 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:20 +0100
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:20 +0100
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:20 +0100
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:20 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:20 +0100
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:20 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:20 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:21 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2017-01-15 21:49:21 +0100
+
+
+Started GET "/assets/raw2-159ddfd2be8000d952cd24776a5d55c0f14e769dac8b9d0632770314e9ff191c.gif" for 127.0.0.1 at 2017-01-15 21:49:21 +0100
+
+
+Started GET "/assets/pozadina07.png" for 127.0.0.1 at 2017-01-15 21:49:21 +0100
