@@ -74,41 +74,49 @@
 			</div><br>
 			<div class="form-group" align="center">
 				<% if (Rating.where(:recipe_id => @recipe.id).length != 0) %>
-	          <%= "Prosječna ocjena: " %><%= @recipe.average_rating %><br></br>
+	          <div class="">
+	          	<h3><%= "Prosječna ocjena: " %><%= @recipe.average_rating %></h3><br></br>
+	          </div>
 	      <% end %>
 
 	      <% if current_user.present? %>
 	          <% if (Rating.where(:recipe_id => @recipe.id).length == 0) %>
-	              <%= "Dodajte prvu ocjenu" %><br></br>
+								<div class="">
+									<h2><%= "Dodajte prvu ocjenu" %></h2><br></br>
+								</div>
 	          <% end %>
 	          <%= render 'rating_input' %>
 	      <% end %>
 			</div>
 
-			<div class="form-group" align="right">
-				<% @comments.each do |c|%>
-	          <%if (c.recipe_id == @recipe.id )%>
-	              <blockquote class="blockquote">
-	                <p class="mb-0">
-	                  <%= c.user_email.to_s %><%= ": "%>
-	                  <%= c.comment.to_s %>
-	                </p>
-	              </blockquote>
-
-	          <% end %>
-	      <% end %>
+			<h3> Komentari: </h3>
+			<div class="form-group" align="left">
+				<ul class="reviews-list">
+					<% @comments.each do |c|%>
+		          <%if (c.recipe_id == @recipe.id )%>
+								<li class="reviews-list-item">
+									<blockquote class="blockquote">
+										<p class="mb-0">
+											<%= c.user_email.to_s %><%= ": "%>
+											<%= c.comment.to_s %>
+										</p>
+									</blockquote>
+								</li>
+		          <% end %>
+		      <% end %>
+				</ul>
 			</div>
-			<div class="form-group" align="right">
+			<div class="form-group" align="left">
 	      <% if current_user.present? %>
 	          <%= form_for @comment do |f| %>
 	              <div class="field">
-	                <%= f.label :Komentar %><br>
-	                <%= f.text_field :comment ,class: "" %>
+	                <%= f.label :Komentar , id: "hidden-area" %><br>
+	                <%= f.text_area :comment ,class: "comment-input" %>
 	                <%= f.hidden_field :recipe_id, :value => @recipe.id %>
 	              </div>
 
-	              <div class="actions">
-	                <%= f.submit "Dodaj komentar" %>
+	              <div class="">
+	                <%= f.submit "Dodaj komentar" ,class: " btn" %>
 	              </div>
 	          <% end %>
 	      <% end %>

@@ -2,10 +2,10 @@
 <%= form_for @rating do |f| %>
 
 	<% if(Rating.where(:user_id => current_user, :recipe_id => @recipe.id).length > 0) %>
-		<%= "Vaša ocjena: " %> <%= Rating.where(:user_id => current_user, :recipe_id => @recipe.id).first.rating.to_s %><br></br>
+		<h4><%= "Vaša ocjena: " %> <%= Rating.where(:user_id => current_user, :recipe_id => @recipe.id).first.rating.to_s %></h4><br></br>
 	<% end %>
 
-	<%= f.select :rating, [['5'],['4'],['3'],['2'],['1']] %>
+	<%= f.select :rating, [['5'],['4'],['3'],['2'],['1']], {}, {class: 'form-control rating-input'} %>
 
 
 	<div class="field">
@@ -17,5 +17,3 @@
 	</div>
 
 <% end%>
-
-

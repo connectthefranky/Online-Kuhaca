@@ -75,7 +75,6 @@
 
                   <%= f.text_area :ingredients, id: "hidden-area" %>
 
-
                   <form class="form-inline">
 
                     <p id="Error-label"></p>
@@ -143,6 +142,8 @@
 
                                     newLI.appendChild(newButton)
                                     list.appendChild(newLI);
+                                    var textaerea = document.getElementById("debug");
+                                    textaerea.value = measure.value + ingredient.value
                                     measure.value = "";
                                     ingredient.value = "";
 
@@ -155,6 +156,8 @@
                                 document.getElementById("Error-label").innerHTML = "GREŠKA! Mjera \"" + measure.value + "\" nije dobro unesena. Pokušajte ponovo!"
                                 measure.value = "";
                             }
+
+
                         }
                     </script>
                   </form>
@@ -189,7 +192,7 @@
                     <% end %>
                   </ul>
 
-                  <div class="" style="display: none;">
+                  <div class="" style="display: none">
                     <%= f.text_area :tags, id: "hidden-area-tag" %>
                   </div>
 
@@ -241,6 +244,9 @@
 
                             newLI.appendChild(newButton)
                             list.appendChild(newLI);
+
+                            var textaerea = document.getElementById("hidden-area-tag");
+                            textaerea.value = tag.value;
                             tag.value = "";
                         }
                     </script>
@@ -267,26 +273,28 @@
                           if(allLi.length == 1 && allLiTag.length == 1) {
                               return false;
                           }
+
                           var hidden = document.getElementById("hidden-area");
                           var hiddenTag = document.getElementById("hidden-area-tag");
                           hidden.value = "";
                           hiddenTag.value = "";
+
                           for(var i = 1, len = allLi.length; i < len; i++) {
                               var allSpans = allLi[i].getElementsByTagName("span");
                               if(i == 1) {
-                                  hidden.value = allSpans[0].innerHTML;
+                                  hidden.value = allSpans[0].innerHTML.trim();
                               } else {
-                                  hidden.value +=  allSpans[0].innerHTML;
+                                  hidden.value += "\n" + allSpans[0].innerHTML.trim();
                               }
                           }
                           for(var i = 1, len = allLiTag.length; i < len; i++) {
                               var allSpans = allLiTag[i].getElementsByTagName("span");
                               if(i == 1) {
-                                  hiddenTag.value = allSpans[0].innerHTML;
+                                  hiddenTag.value = allSpans[0].innerHTML.trim();
                               } else {
-                                  hiddenTag.value += allSpans[0].innerHTML;
+                                  hiddenTag.value += "\n" + allSpans[0].innerHTML.trim();
                               }
-                          }"\r\n" +
+                          }
 
                           return true;
                       }

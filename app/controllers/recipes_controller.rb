@@ -134,41 +134,29 @@ class RecipesController < ApplicationController
           next
         end
 
-        if strLine.blank?
-          next
-        end
-
         array = strLine.split("\t")
         ingredient = Ingredient.create(name: array[1])
         @ingrs << ingredient
-        @measurs << Measurement.create(ingredient_id: ingredient.id, recipe_id: @recipe.id, measure: array[0])
-    end
+        @measurs << Measurement.create(ingredient: ingredient, recipe: @recipe, measure: array[0].strip)
+        Measurement.create(ingredient_id: ingredient.id, recipe_id: @recipe.id, measure: array[0].strip)
+     end
 
     end
 
     def parse_tags
       line = params.require(:recipe).permit(:tags)[:tags]
-
       splitted = line.to_s.split("\r\n")
       splitted.each do |strLine|
         if strLine.starts_with?("{")
           next
         end
 
-        if strLine.strip.blank?
-          next
-        end
-
-        strLine.split("\n").each do |split|
-
-          tag = Tag.find_or_create_by(title: split)
-          @tgs << RecipeTag.create(tag: tag, recipe: @recipe)
-        end
+        tag = Tag.find_or_create_by(title: strLine)
+        @tgs << RecipeTag.create(tag: tag, recipe: @recipe)
       end
     end
 
     def authorize_user!
       redirect_to recipes_path if current_user != @recipe.user && current_user.email != "lovro.kordis@fer.hr"
     end
-
 end

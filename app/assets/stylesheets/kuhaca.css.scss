@@ -375,3 +375,22 @@ body {
   font-family: Monaco;
   margin-top: 3px;
 }
+
+.reviews-list {
+   list-style: none;
+   padding: 0 0 18px;
+}
+
+.reviews-list-item {
+  background-color: white;
+  width: 40%;
+}
+
+.comment-input {
+  width: 40%;
+}
+
+.rating-input {
+  width: 70px;
+  height: 35px;
+}
