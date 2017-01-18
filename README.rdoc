@@ -1,4 +1,8 @@
 == README
+Verzije :
+* Rails 4.2.6
+* Bundler 1.13.5
+* Ruby 2.3.1p112 (2016-04-26 revision 54768) [x64-mingw32]
 Potrebno za pokretanje aplikacije :
 * Skidanje MySQL-a sa https://dev.mysql.com/downloads/installer/ (ovaj file sa 386 MB)
 * Pokrenite MySQL Workbench
