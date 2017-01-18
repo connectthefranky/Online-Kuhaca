@@ -10,12 +10,45 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    query = params[:search]
+    search_query = params[:search]
+    if search_query.blank? || search_query.nil?
+      @recipes = Recipe.all
+    else
+      @recipes = Array.new
+
+      @search = Sunspot.search Recipe, Tag, Ingredient do
+        fulltext search_query
+      end
+
+      @search.results.each do |result|
+        if result.is_a?(Tag)
+          @recipe_tags = RecipeTag.select { |rt| rt.tag_id == result.id}
+
+          @recipe_tags.each do |tag|
+            Recipe.select { |rc| rc.id == tag.recipe_id }.each do |recipe|
+                @recipes << recipe
+            end
+          end
+        elsif result.is_a?(Ingredient)
+          @measurements = Measurement.select { |m| m.ingredient_id == result.id }
+
+          @measurements.each do |measurement|
+            Recipe.select { |r| r.id == measurement.recipe_id }.each do |recipe|
+                @recipes << recipe
+            end
+          end
+        elsif result.is_a?(Recipe)
+            @recipes << result
+        end
+      end
+    end
+  end
+=begin
     @search = Recipe.search do
       fulltext query
     end
     @recipes = @search.results
-  end
+=end
 
   # GET /recipes/1
   # GET /recipes/1.json
@@ -158,5 +191,33 @@ class RecipesController < ApplicationController
 
     def authorize_user!
       redirect_to recipes_path if current_user != @recipe.user && current_user.email != "lovro.kordis@fer.hr"
+    end
+
+    def search
+      @search = Sunspot.search Recipe, Tag, Ingredient do
+        fulltext search_query
+      end
+
+      @search.results.each do |result|
+        if result.is_a?(Tag)
+          @recipe_tags = RecipeTag.select { |rt| rt.tag_id == result.id}
+
+          @recipe_tags.each do |tag|
+            Recipe.select { |rc| rc.id == tag.recipe_id }.each do |recipe|
+              @recipes << recipe
+            end
+          end
+        elsif result.is_a?(Ingredient)
+          @measurements = Measurement.select { |m| m.ingredient_id == result.id }
+
+          @measurements.each do |measurement|
+            Recipe.select { |r| r.id == measurement.recipe_id }.each do |recipe|
+              @recipes << recipe
+            end
+          end
+        else
+          @recipes << result
+        end
+      end
     end
 end

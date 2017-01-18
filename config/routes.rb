@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get '/ingredients/:id', to: 'ingredientes#show' , as: 'ingredient'
   get '/tags/:id', to: 'tags#show'
+  get '/recipes/search', to: 'recipes#search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -33,39 +33,25 @@
 			</ul>
 
 
-			<form class="navbar-form navbar-left" role="search">
+			<div class="navbar-form navbar-left" role="search">
 				<div class="input-group">
 					<span class="input-group-addon" id="sizing-addon"><span class="glyphicon glyphicon-search"></span></span>
 					<div class="form-group">
-						<%= text_field_tag :search, params[:search], placeholder:"Pretraži recepte", class: "form-control" %>
-
-
-						<button type="submit" class="btn btn-success" id="navbar-potvrdi"> Traži </button>
-
-
-
-
-						<!--<%= form_tag recipes_path, :method => :get do %>
-		    			<%= text_field_tag :search, params[:search] %>
-		    			<%= submit_tag "Traži", :name => nil %>
-		    			<% end %>-->
-	   				</div>
+						<%= form_tag '/recipes', :method => :get do %>
+		    			<%= text_field_tag :search, params[:search], placeholder:"Pretraži recepte", class: "form-control" %>
+		    			<%= submit_tag "Traži", :name => nil, :class => "btn btn-success", :id => "navbar-potvrdi" %>
+		    		<% end %>
+	   			</div>
 
 	    		<%=link_to "Svi recepti", recipes_path, class: "btn btn-success" %>
-	    		<% if user_signed_in? %>							
+	    		<% if user_signed_in? %>
 
-	    		<%=link_to"Dodaj recept", new_recipe_path, class: "btn btn-success" %>								
+	    		<%=link_to"Dodaj recept", new_recipe_path, class: "btn btn-success" %>
 
 	    		<% end %>
-    		</form>
+    		</div>
     	</div>
 
 
     </div><!--/.container-->
 </nav><!--/.navbar -->
-
-
-
-
-
-
